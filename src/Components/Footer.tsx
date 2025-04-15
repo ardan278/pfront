@@ -1,17 +1,18 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import './Styles/Footer.css'; // Importing the new footer.css file
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark text-light py-4 mt-auto" aria-label="Footer">
+    <footer className="bg-dark text-light py-3 mt-auto" aria-label="Footer">
       <Container>
         <Row className="justify-content-between">
           {/* Left section - Copyright */}
           <Col md={6} className="text-center text-md-start">
             <p className="mb-0" role="contentinfo">
-              &copy; {currentYear} VTSTechCorp. All rights reserved.
+              &copy; {currentYear} Your Company. All rights reserved.
             </p>
           </Col>
 

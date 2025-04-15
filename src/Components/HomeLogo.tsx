@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './HomeLogo.css';
+import './Styles/HomeLogo.css';
 
 // Functional component for HomeLogo
 const HomeLogo: React.FC = () => {
