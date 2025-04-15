@@ -52,9 +52,10 @@ const HomeLogo: React.FC = () => {
 
       {/* Centered animated logo */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <h1 className="text-6xl md:text-8xl font-extrabold text-center">
-          {letters}
-        </h1>
+      <h1 className="home-logo-text font-extrabold text-center">
+  {letters}
+</h1>
+
       </div>
     </div>
   );

@@ -10,16 +10,30 @@
   overflow: hidden;
 }
 
-/* Logo heading with black outline and white text */
+/* Responsive Logo heading with black outline and white text */
 .home-logo h1 {
-  font-size: 10rem;
+  font-size: 10vw; /* Responsive font size */
   font-weight: 900;
   color: white;
   -webkit-text-stroke: 1px black;
   position: relative;
   z-index: 10;
+  text-align: center;
+  line-height: 1.1;
 }
 
+/* Optional: Tweak for medium and large screens */
+@media (min-width: 768px) {
+  .home-logo h1 {
+    font-size: 8vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-logo h1 {
+    font-size: 6vw;
+  }
+}
 
 /* Background slideshow container with animation */
 .bg-slider {
