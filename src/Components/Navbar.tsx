@@ -17,7 +17,7 @@ const NavbarComponent: React.FC = () => {
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto">
             {[
-              { to: "/", label: "Home" },
+              { to: "/home", label: "Home" },
               { to: "/about", label: "About" },
               { to: "/contact", label: "Contact" },
               { to: "/forms", label: "Forms" },

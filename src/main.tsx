@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import NavBar from "./Components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Footer from "./components/footer";
+import Footer from "./Components/Footer";
 import { Container } from "react-bootstrap";
 import HomeLogo from './Components/HomeLogo';
 
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <App />
         </Container>
       </Router>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   </React.StrictMode>
 );
