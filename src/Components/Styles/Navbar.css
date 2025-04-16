@@ -1,77 +1,52 @@
-.nav-link-hover {
-    position: relative;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-link-hover::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 25%;
-    width: 50%;
-    height: 2px;
-    background-color: #0dcaf0;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s ease;
-  }
-  
-  .nav-link-hover:hover,
-  .nav-link-hover.active {
-    color: #0dcaf0 !important;
-    text-decoration: none;
-  }
-  
-  .nav-link-hover:hover::after,
-  .nav-link-hover.active::after {
-    transform: scaleX(1);
-  }
+/* ========== NAVBAR STYLES ========== */
 
 .navbar {
   z-index: 999; /* Keep navbar on top */
 }
 
-.contact-link {
-  position: fixed;
-  top: 50%;
-  right: 2rem;
-  transform: translateY(300%) rotate(270deg); /* Rotate text vertically */
-  transform-origin: top right; /* Make the rotation start from the top right */
-  background-color: #2f5fe4; /* Default background color of the box */
-  border-radius: 8px 8px 0 0;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Make sure it's on top of other elements */
-  padding: 1rem;
-  text-align: justify;
-  /* Adjust width and height */
-  width: 150px;
-  height: 40px; /* Increased height for better visibility */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s ease; /* Smooth transition */
-  cursor: pointer; /* Make sure the entire box behaves like a button */
-  text-decoration: none; /* Remove any underline from the link */
-}
-
-/* Hover effect for Contact Us box */
-.contact-link:hover {
-  background-color: #0dcaf0a8;
-}
-
-/* Contact Us text inside the button */
-.contact-link-text {
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
+/* Hover underline animation */
+.nav-link-hover {
   position: relative;
   transition: color 0.3s ease;
 }
 
-/* Hover effect for Contact Us text  */
-.contact-link-text:hover {
-  color: rgb(0, 0, 0) !important;
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background-color: #0dcaf0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-link-hover:hover,
+.nav-link-hover.active {
+  color: #0dcaf0 !important;
   text-decoration: none;
-  background-color: transparent;
+}
+
+.nav-link-hover:hover::after,
+.nav-link-hover.active::after {
+  transform: scaleX(1);
+}
+
+/* Remove conflicting hover styles (you had 2 definitions before) */
+
+
+/* ========== OPTIONAL ACTIVE STYLE (OVERRIDE FROM BOOTSTRAP) ========== */
+
+.active {
+  font-weight: bold;
+}
+
+
+/* ========== REMOVE IF UNUSED ========== */
+/* These are now unnecessary since Contact is in main navbar */
+.contact-link,
+.contact-link-text {
+  display: none !important;
 }

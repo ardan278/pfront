@@ -17,7 +17,7 @@
   color: white;
   -webkit-text-stroke: 1px black;
   position: relative;
-  z-index: 10;
+  z-index: 2;
   text-align: center;
   line-height: 1.1;
 }
@@ -82,3 +82,57 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+#about {
+  scroll-margin-top: 4rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+#services {
+  scroll-margin-top: 4rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.home-logo-h2 {
+  font-size: 30px; /* Responsive font size */
+  font-weight: extrabold;
+  color: white;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  line-height: 1.1;
+  margin-top: 2rem; /* Reduced the margin to place buttons closer to the text */
+  background-color: transparent;
+  border-color: white;
+  display: flex;
+  justify-content: center; /* Centers buttons horizontally */
+  gap: 2rem; /* Spacing between the buttons */
+  width: 100%;
+}
+
+.home-logo-h2 {
+  display: flex;
+  justify-content: center; /* Centers buttons horizontally */
+  gap: 2rem; /* Spacing between the buttons */
+  margin-top: 2rem;
+}
+
+.home-logo-h2 button {
+  padding: 10px 20px;
+  border: 2px solid white; /* Button outline */
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  font-weight: 700;
+}
+
+.home-logo-h2 button:hover {
+  background-color: rgb(21, 175, 231); /* Slight background color on hover */
+  transform: scale(1.05); /* Slight scaling effect */
+}
+

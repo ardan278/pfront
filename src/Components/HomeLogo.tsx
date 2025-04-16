@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import './Styles/HomeLogo.css';
 
-// Functional component for HomeLogo
 const HomeLogo: React.FC = () => {
   useEffect(() => {
-    // Dynamically load anime.js
     const loadAnimeScript = () => {
       const script = document.createElement('script');
       script.src = 'https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js';
@@ -13,7 +11,6 @@ const HomeLogo: React.FC = () => {
       document.body.appendChild(script);
     };
 
-    // Initialize anime.js animation after loading the script
     const initializeAnime = () => {
       const anime = (window as any).anime;
       if (anime) {
@@ -40,24 +37,56 @@ const HomeLogo: React.FC = () => {
     </span>
   ));
 
+  const button1 = 'Services';
+  const button2 = 'Forms';
+
   return (
-    <div className="home-logo h-screen w-full relative overflow-hidden">
-      {/* Background slideshow */}
-      <div className="bg-slider">
-        <div className="bg-slide bg-slide-1"></div>
-        <div className="bg-slide bg-slide-2"></div>
-        <div className="bg-slide bg-slide-3"></div>
-        <div className="bg-slide bg-slide-1"></div> {/* Duplicate for smooth loop */}
+    <>
+      {/* Hero Section */}
+      <div id="home" className="home-logo h-screen w-full relative overflow-hidden flex flex-col items-center justify-center">
+       {/* Background Slideshow */}
+        <div className="bg-slider">
+          <div className="bg-slide bg-slide-1"></div>
+          <div className="bg-slide bg-slide-2"></div>
+          <div className="bg-slide bg-slide-3"></div>
+          <div className="bg-slide bg-slide-1"></div>
+        </div>
+
+        {/* Logo Text */}
+        <div className='items-center'>
+          <div className='d-flex flex-col items-center'>
+            <h1 className="home-logo-text font-extrabold text-center text-white text-4xl sm:text-6xl">
+              {letters}
+            </h1>
+          </div>
+          <div className='col justify-center home-logo-h2 mt-5'>
+            <button className="px-6 py-2 rounded">
+              Services
+            </button>
+            <button className="px-6 py-2 rounded">
+              Forms
+            </button>
+          </div>
+        </div>
+
+        
       </div>
 
-      {/* Centered animated logo */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
-      <h1 className="home-logo-text font-extrabold text-center">
-  {letters}
-</h1>
 
-      </div>
-    </div>
+
+      {/* About Section */}
+      <section id="about" className="scroll-mt-24 py-20 px-6 md:px-20 bg-gray-100 mb-2">
+        <div className="card p-3">
+          <h1 className="card-header">About Us</h1>
+          <p className="mt-2">
+            VTSTechCorp is a forward-thinking tech company dedicated to delivering innovative
+            software solutions for businesses and individuals. With a passion for quality and a
+            drive for perfection, we aim to transform your ideas into reality through modern
+            design, robust engineering, and user-centric products.
+          </p>
+        </div>
+      </section>
+    </>
   );
 };
 
