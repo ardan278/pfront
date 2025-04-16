@@ -82,12 +82,14 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 #about {
   scroll-margin-top: 4rem;
   margin-right: 1rem;
   margin-left: 1rem;
   margin-top: 1rem;
 }
+
 #services {
   scroll-margin-top: 4rem;
   margin-right: 1rem;
@@ -136,3 +138,98 @@
   transform: scale(1.05); /* Slight scaling effect */
 }
 
+/* About Section Styles */
+.section-container {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  border-radius: 10px;
+  margin: 3rem 0;
+}
+
+.section-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333;
+  position: relative;
+}
+
+.section-container h2:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(to right, #A888B5, #E4D2D8);
+}
+
+.section-container p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Custom animations for AOS */
+[data-aos="fade-right"] {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-left"] {
+  transform: translateX(100px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-up"] {
+  transform: translateY(100px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-down"] {
+  transform: translateY(-100px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos].aos-animate {
+  transform: translateX(0) translateY(0);
+  opacity: 1;
+}
+
+/* Responsive adjustments for the about sections */
+@media (max-width: 768px) {
+  .section-container h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .section-container h2:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .section-container p {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  [data-aos="fade-right"],
+  [data-aos="fade-left"] {
+    transform: translateY(50px);
+  }
+  
+  [data-aos].aos-animate {
+    transform: translateY(0);
+  }
+}
