@@ -67,9 +67,7 @@ const HomeLogo: React.FC = () => {
               Forms
             </button>
           </div>
-        </div>
-
-        
+        </div>        
       </div>
 
 
