@@ -1,16 +1,16 @@
 /* ========== NAVBAR STYLES ========== */
 
 .navbar {
-  z-index: 999; /* Keep navbar on top */
+  z-index: 999;
 }
 
-/* Hover underline animation */
 .nav-link-hover {
   position: relative;
   transition: color 0.3s ease;
 }
 
-.nav-link-hover::after {
+/* Hover and Active underline animation */
+/* .nav-link-hover::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -21,7 +21,7 @@
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s ease;
-}
+} */
 
 .nav-link-hover:hover,
 .nav-link-hover.active {
@@ -34,18 +34,13 @@
   transform: scaleX(1);
 }
 
-/* Remove conflicting hover styles (you had 2 definitions before) */
-
-
-/* ========== OPTIONAL ACTIVE STYLE (OVERRIDE FROM BOOTSTRAP) ========== */
-
-.active {
-  font-weight: bold;
+/* Override Bootstrap .active if needed */
+.navbar .nav-link.active {
+  border-bottom: 2px solid #0dcaf0;
+  color: #0dcaf0 !important;
 }
 
-
-/* ========== REMOVE IF UNUSED ========== */
-/* These are now unnecessary since Contact is in main navbar */
+/* Optional cleanup */
 .contact-link,
 .contact-link-text {
   display: none !important;

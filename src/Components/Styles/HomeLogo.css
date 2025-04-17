@@ -83,13 +83,7 @@
   -webkit-text-fill-color: transparent;
 }
 #about {
-  scroll-margin-top: 4rem;
-  margin-right: 1rem;
-  margin-left: 1rem;
-  margin-top: 1rem;
-}
-#services {
-  scroll-margin-top: 4rem;
+  scroll-margin-top: 5rem;
   margin-right: 1rem;
   margin-left: 1rem;
   margin-top: 1rem;
@@ -119,20 +113,31 @@
   margin-top: 2rem;
 }
 
-.home-logo-h2 button {
+.home-logo-h2-btn {
   padding: 10px 20px;
-  border: 2px solid white; /* Button outline */
-  background-color: transparent;
-  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.541);
+  color: blue;
   font-size: 1.5rem;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: all 0.3s ease; /* Smooth transition for hover effect */
   font-weight: 700;
 }
 
-.home-logo-h2 button:hover {
-  background-color: rgb(21, 175, 231); /* Slight background color on hover */
-  transform: scale(1.05); /* Slight scaling effect */
+.home-logo-h2-btn:hover {
+    transform:  translateY(-5px); /* Slight zoom and lift */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
+    cursor: pointer;
+    background-color: blue; /* Slightly lighter on hover */
+    color:white
 }
 
+#home-logo-card{
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+#tea{
+  margin-right: 1rem;
+  margin-left: 1rem;
+}

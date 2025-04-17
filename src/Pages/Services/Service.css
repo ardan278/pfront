@@ -1,0 +1,92 @@
+.page-h1{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.page-card{
+    margin-top: 5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+.page-logo {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+.grad-text {
+    background: black;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.group-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards; /* Animation for fade and slide-in */
+  }
+  
+  .group-card h2 {
+    transition: color 0.3s ease;
+  }
+  
+  .group-card:hover {
+    transform: scale(1.05) translateY(-5px); /* Slight zoom and lift */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
+    cursor: pointer;
+  }
+  
+  .group-card:hover h2 {
+    color: #007bff; /* Change color of the title on hover */
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .modal {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal h2 {
+    margin-top: 0;
+  }
+  
+  .modal button {
+    margin-top: 20px;
+    padding: 8px 20px;
+    border: none;
+    background: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

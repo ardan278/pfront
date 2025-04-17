@@ -1,5 +1,41 @@
 import React, { useEffect } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import './Styles/HomeLogo.css';
+import Blog2 from "../assets/images/peopleHandOver.jpg";
+import Escalator from "../assets/images/Escalator.png";
+import Blog1 from "../assets/images/1523699544907.png";
+import Blog3 from "../assets/images/b3_part.jpg";
+import { HashLink } from 'react-router-hash-link';
+
+const sections = [
+  {
+    title: "Our Mission",
+    text: "Our mission is to deliver top-notch solutions to our clients ensuring the highest level of satisfaction.",
+    image: Blog1,
+    layout: "left-text",
+    bgClass: "bg-light",
+    imageStyle: "w-[75%] h-auto rounded-[25px] mx-auto d-block",
+    animation: "fade-right"
+  },
+  {
+    title: "Our Vision",
+    text: "We envision a future where technology empowers people and transforms industries.",
+    image: Blog2,
+    layout: "right-text",
+    bgClass: "",
+    imageStyle: "w-[70%] h-auto rounded-[50px] mx-auto d-block shadow-md",
+    animation: "fade-left"
+  },
+  {
+    title: "Our Values",
+    text: "Integrity, innovation, and commitment to excellence define our core values.",
+    image: Blog3,
+    layout: "left-text",
+    bgClass: "bg-light",
+    imageStyle: "w-[70%] h-auto object-cover rounded-[20px] mx-auto d-block shadow-md",
+    animation: "fade-right"
+  },
+];
 
 const HomeLogo: React.FC = () => {
   useEffect(() => {
@@ -37,14 +73,11 @@ const HomeLogo: React.FC = () => {
     </span>
   ));
 
-  const button1 = 'Services';
-  const button2 = 'Forms';
-
   return (
     <>
       {/* Hero Section */}
       <div id="home" className="home-logo h-screen w-full relative overflow-hidden flex flex-col items-center justify-center">
-       {/* Background Slideshow */}
+        {/* Background Slideshow */}
         <div className="bg-slider">
           <div className="bg-slide bg-slide-1"></div>
           <div className="bg-slide bg-slide-2"></div>
@@ -59,31 +92,73 @@ const HomeLogo: React.FC = () => {
               {letters}
             </h1>
           </div>
-          <div className='col justify-center home-logo-h2 mt-5'>
-            <button className="px-6 py-2 rounded">
+          <div className='col justify-center home-logo-h2 mt-5 d-flex gap-3'>
+            <HashLink smooth to="/services"  className='home-logo-h2-btn'>
               Services
-            </button>
-            <button className="px-6 py-2 rounded">
+            </HashLink>
+            <HashLink smooth to="/forms" className="home-logo-h2-btn">
               Forms
-            </button>
+            </HashLink>
           </div>
-        </div>        
+        </div>
       </div>
 
-
-
       {/* About Section */}
-      <section id="about" className="scroll-mt-24 py-20 px-6 md:px-20 bg-gray-100 mb-2">
-        <div className="card p-3">
-          <h1 className="card-header">About Us</h1>
-          <p className="mt-2">
-            VTSTechCorp is a forward-thinking tech company dedicated to delivering innovative
-            software solutions for businesses and individuals. With a passion for quality and a
-            drive for perfection, we aim to transform your ideas into reality through modern
-            design, robust engineering, and user-centric products.
-          </p>
+      <div id="about">
+        {/* Static About Section */}
+        <div className="card py-5 bg-light text-dark">
+          <Row className="align-items-center text-center">
+            <Col className="p-4 text-md-start" id='tea'>
+              <h1 className=''>Welcome to Our Platform</h1>
+              <p>We provide high-quality services to help you achieve your goals.</p>
+            </Col>
+            <Col className="d-flex justify-content-center">
+              <img
+                src={Escalator}
+                alt="Hero"
+                className="img-fluid rounded w-75"
+              />
+            </Col>
+          </Row>
         </div>
-      </section>
+
+        {/* Dynamic Sections inside cards */}
+        {sections.map((section, index) => (
+          <div key={index} className="my-4 justify-content-center">
+              <div className="card p-4 shadow-sm">
+                <Row className="align-items-center text-center">
+                  {/* Image on Left if layout is right-text */}
+                  {section.layout === "right-text" && (
+                    <Col md={6} className="mb-4 mb-md-0 d-flex justify-content-center">
+                      <img
+                        src={section.image}
+                        alt={section.title}
+                        className={`img-fluid ${section.imageStyle}`}
+                      />
+                    </Col>
+                  )}
+
+                  {/* Text */}
+                  <Col className="text-md-start">
+                    <h2>{section.title}</h2>
+                    <p>{section.text}</p>
+                  </Col>
+
+                  {/* Image on Right if layout is left-text */}
+                  {section.layout === "left-text" && (
+                    <Col className="mt-4 mt-md-0 d-flex justify-content-center">
+                      <img
+                        src={section.image}
+                        alt={section.title}
+                        className={`img-fluid ${section.imageStyle}`}
+                      />
+                    </Col>
+                  )}
+                </Row>
+              </div>
+            </div>
+        ))}
+      </div>
     </>
   );
 };
