@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { HashLink } from "react-router-hash-link";
-import "./Styles/NavBar.css";
+import "./Styles/Navbar.css";
 
 const NavbarComponent: React.FC = () => {
   const navItems = [
