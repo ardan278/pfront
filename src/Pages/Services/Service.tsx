@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Service.css';
 import { Link } from 'react-router-dom';
 
-const ServicesPage: React.FC = () => {
+const ServicePage: React.FC = () => {
   const [animeLoaded, setAnimeLoaded] = useState(false);
 
   useEffect(() => {
@@ -35,64 +35,64 @@ const ServicesPage: React.FC = () => {
 
   const text = 'Services';
   const letters = text.split('').map((letter, index) => (
-    <span key={index} className="letter grad-text">
+    <span key={index} className="letter" style={{ color: 'white', fontWeight: 'bold' }}>
       {letter}
     </span>
   ));
 
   const groups = [
-    { title: 'Spare Parts', description: 'Order complete spares of any elevator brand here. If you have your own service company maintaining / servicing other brand elevators, we can be your reliable partners', link: '/sparepartform' },
-    { title: 'New Sales', description: 'VTSTech Corp can help find best fit VT equipment based on usage and type of building. We offer both standard and custom lift car designs, utilizing a variety of materials chosen by you for new elevator installations. ',link: '/newsales' },
-    { title: 'Service', description: 'VTSTech Corp can help find great after sales comprehensive service package that suits YOUR budget.',link: '/service' },
-    { title: 'Modernization', description: "Let's replace what is REQUIRED!! VTSTech Corp will provide you with qualified vendors and service providers near to place. We also specialize in creating new car designs for existing lifts as part of modernization projects, ensuring top-notch workmanship throughout the process. ",link: '/modernization' },
-    { title: 'Cab Interior', description: 'We provide lift car standard designs and also manufacture bespoke designs and install assuring best workmanship using different materials to your selection for new elevators. ',link: '/contact' },
+    {
+      title: 'Spare Parts',
+      description:
+        'Order complete spares of any elevator brand here. If you have your own service company maintaining / servicing other brand elevators, we can be your reliable partners',
+      link: '/sparepartform',
+    },
+    {
+      title: 'New Sales',
+      description:
+        'VTSTech Corp can help find best fit VT equipment based on usage and type of building. We offer both standard and custom lift car designs, utilizing a variety of materials chosen by you for new elevator installations.',
+      link: '/newsales',
+    },
+    {
+      title: 'Service',
+      description:
+        'VTSTech Corp can help find great after sales comprehensive service package that suits YOUR budget.',
+      link: '/service',
+    },
+    {
+      title: 'Modernization',
+      description:
+        "Let's replace what is REQUIRED!! VTSTech Corp will provide you with qualified vendors and service providers near to place. We also specialize in creating new car designs for existing lifts as part of modernization projects, ensuring top-notch workmanship throughout the process.",
+      link: '/modernization',
+    },
+    {
+      title: 'Cab Interior',
+      description:
+        'We provide lift car standard designs and also manufacture bespoke designs and install assuring best workmanship using different materials to your selection for new elevators.',
+      link: '/contact',
+    },
   ];
 
   return (
-    <div className="page-card card" style={{ textAlign: 'center', padding: '20px' }}>
-      <h1 className='page-h1 card-header rounded page-logo'>{letters}</h1>
-      <div className="group-cards" style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', marginTop: '20px' }}>
-        {groups.map((group, index) => (
+    <div className="page-card">
+      <h1 className="cont-h rounded page-logo">{letters}</h1>
+      <div className="group-conts">
+        {groups.map((group, index) =>
           group.link ? (
-            <Link
-              key={index}
-              to={group.link}
-              className="group-card"
-              style={{
-                flex: '1 1 calc(20% - 10px)',
-                margin: '5px',
-                textAlign: 'center',
-                border: '1px solid #ccc',
-                padding: '10px',
-                borderRadius: '5px',
-                textDecoration: 'none',
-                color: 'inherit'
-              }}
-            >
-              <h2 className='card-header rounded'>{group.title}</h2>
-              <p className='card-body rounded mt-2' style={{ textAlign: 'justify' }}>{group.description}</p>
+            <Link key={index} to={group.link} className="group-cont">
+              <h2 className="cont-head rounded">{group.title}</h2>
+              <p className="card-body rounded my-2">{group.description}</p>
             </Link>
           ) : (
-            <div
-              key={index}
-              className="group-card"
-              style={{
-                flex: '1 1 calc(20% - 10px)',
-                margin: '5px',
-                textAlign: 'center',
-                border: '1px solid #ccc',
-                padding: '10px',
-                borderRadius: '5px'
-              }}
-            >
-              <h2>{group.title}</h2>
-              <p>{group.description}</p>
+            <div key={index} className="group-cont">
+              <h2 className="">{group.title}</h2>
+              <p className="card-body rounded my-2">{group.description}</p>
             </div>
           )
-        ))}
+        )}
       </div>
     </div>
   );
 };
 
-export default ServicesPage;
+export default ServicePage;

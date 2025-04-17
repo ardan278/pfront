@@ -1,92 +1,85 @@
-.page-h1{
-    font-size: 3rem;
-    font-weight: 700;
+/* ServicesPage.css */
+.cont-h {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+}
+.page-card {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgb(0, 0, 0);
+  margin-top: 5rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
-.page-card{
-    margin-top: 5rem;
-    margin-right: 1rem;
-    margin-left: 1rem;
-}
 .page-logo {
-    position: relative;
-    z-index: 2;
-    overflow: hidden;
-  }
-
-.grad-text {
-    background: black;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background-color: rgba(0, 0, 0, 0.70);
+  margin-bottom: 20px;
 }
 
-.group-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards; /* Animation for fade and slide-in */
-  }
-  
-  .group-card h2 {
-    transition: color 0.3s ease;
-  }
-  
-  .group-card:hover {
-    transform: scale(1.05) translateY(-5px); /* Slight zoom and lift */
+.group-conts {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.group-cont {
+  flex: 1 1 calc(20% - 10px);
+  margin: 5px;
+  text-align: center;
+  border: 2px solid #ccc;
+  padding: 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+}
+
+.group-cont h2 {
+  margin-bottom: 12px;
+  color: rgb(0, 100, 255);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+  font-size: 1.25rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+.group-cont p {
+  color: #f1f1f1;
+  text-align: justify;
+  padding: 8px;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.11);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+/* Hover Effects */
+.group-cont:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgb(0, 0, 0);
+}
+
+
+.group-cont:hover h2 {
+    transform:  translateY(-5px); /* Slight zoom and lift */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
     cursor: pointer;
-  }
-  
-  .group-card:hover h2 {
-    color: #007bff; /* Change color of the title on hover */
-  }
-  
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+    background-color: blue; /* Slightly lighter on hover */
+    color:white
+}
 
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-  
-  .modal {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 500px;
-    text-align: center;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  }
-  
-  .modal h2 {
-    margin-top: 0;
-  }
-  
-  .modal button {
-    margin-top: 20px;
-    padding: 8px 20px;
-    border: none;
-    background: #007BFF;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+.group-cont:hover p {
+  /* color: black; */
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  /* box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5); */
+}

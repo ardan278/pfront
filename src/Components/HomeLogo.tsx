@@ -77,12 +77,12 @@ const HomeLogo: React.FC = () => {
     <>
       {/* Hero Section */}
       <div id="home" className="home-logo h-screen w-full relative overflow-hidden flex flex-col items-center justify-center">
-        <div className="bg-slider">
+        {/* <div className="bg-slider">
           <div className="bg-slide bg-slide-1"></div>
           <div className="bg-slide bg-slide-2"></div>
           <div className="bg-slide bg-slide-3"></div>
           <div className="bg-slide bg-slide-1"></div>
-        </div>
+        </div> */}
 
         <div className='items-center'>
           <div className='d-flex flex-col items-center'>
