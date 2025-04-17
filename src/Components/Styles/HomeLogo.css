@@ -82,8 +82,17 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 #about {
   scroll-margin-top: 5rem;
+  scroll-margin-top: 4rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+#services {
+  scroll-margin-top: 4rem;
   margin-right: 1rem;
   margin-left: 1rem;
   margin-top: 1rem;
@@ -130,14 +139,4 @@
     cursor: pointer;
     background-color: blue; /* Slightly lighter on hover */
     color:white
-}
-
-#home-logo-card{
-  margin-right: 1rem;
-  margin-left: 1rem;
-}
-
-#tea{
-  margin-right: 1rem;
-  margin-left: 1rem;
 }

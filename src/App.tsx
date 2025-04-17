@@ -2,9 +2,9 @@
 import { Routes, Route } from "react-router-dom";
 import HomeLogo from "./Components/HomeLogo";
 import Contact from "./Pages/Contact";
-import ServicesPage from "./Pages/Services/Service.tsx";
-import FormsPage from "./Pages/Forms/Form";
-import SparePartForm from "./Pages/Services/SpareParts/SparePartForm.tsx";
+import ServicesPage from "./Pages/Services/Service";
+import SparePartForm from "./Pages/Services/SpareParts/SparePartForm";
+import FormsPage from "./Pages/Forms/Form"; // Ensure FormsPage is correctly imported
 
 const App: React.FC = () => {
   return (

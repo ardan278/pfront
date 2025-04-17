@@ -78,14 +78,12 @@ const SparePartForm: React.FC = () => {
         </div>
         <button type="submit" style={{ padding: '10px 20px' }}>Submit</button>
       </form>
-</div>
-      
 
+      <div style={{ marginTop: '20px' }}>
+        <Link to="/services">⬅ Go Back</Link>
+      </div>
+    </div>
   );
 };
 
 export default SparePartForm;
-
-<div style={{ marginTop: '20px' }}>
-        <Link to="/services">⬅ Go Back</Link>
-      </div>

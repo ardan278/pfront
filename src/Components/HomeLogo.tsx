@@ -77,7 +77,6 @@ const HomeLogo: React.FC = () => {
     <>
       {/* Hero Section */}
       <div id="home" className="home-logo h-screen w-full relative overflow-hidden flex flex-col items-center justify-center">
-        {/* Background Slideshow */}
         <div className="bg-slider">
           <div className="bg-slide bg-slide-1"></div>
           <div className="bg-slide bg-slide-2"></div>
@@ -85,7 +84,6 @@ const HomeLogo: React.FC = () => {
           <div className="bg-slide bg-slide-1"></div>
         </div>
 
-        {/* Logo Text */}
         <div className='items-center'>
           <div className='d-flex flex-col items-center'>
             <h1 className="home-logo-text font-extrabold text-center text-white text-4xl sm:text-6xl">
@@ -93,7 +91,7 @@ const HomeLogo: React.FC = () => {
             </h1>
           </div>
           <div className='col justify-center home-logo-h2 mt-5 d-flex gap-3'>
-            <HashLink smooth to="/services"  className='home-logo-h2-btn'>
+            <HashLink smooth to="/services" className='home-logo-h2-btn'>
               Services
             </HashLink>
             <HashLink smooth to="/forms" className="home-logo-h2-btn">
@@ -105,11 +103,10 @@ const HomeLogo: React.FC = () => {
 
       {/* About Section */}
       <div id="about">
-        {/* Static About Section */}
         <div className="card py-5 bg-light text-dark">
           <Row className="align-items-center text-center">
             <Col className="p-4 text-md-start" id='tea'>
-              <h1 className=''>Welcome to Our Platform</h1>
+              <h1>Welcome to Our Platform</h1>
               <p>We provide high-quality services to help you achieve your goals.</p>
             </Col>
             <Col className="d-flex justify-content-center">
@@ -125,38 +122,38 @@ const HomeLogo: React.FC = () => {
         {/* Dynamic Sections inside cards */}
         {sections.map((section, index) => (
           <div key={index} className="my-4 justify-content-center">
-              <div className="card p-4 shadow-sm">
-                <Row className="align-items-center text-center">
-                  {/* Image on Left if layout is right-text */}
-                  {section.layout === "right-text" && (
-                    <Col md={6} className="mb-4 mb-md-0 d-flex justify-content-center">
-                      <img
-                        src={section.image}
-                        alt={section.title}
-                        className={`img-fluid ${section.imageStyle}`}
-                      />
-                    </Col>
-                  )}
-
-                  {/* Text */}
-                  <Col className="text-md-start">
-                    <h2>{section.title}</h2>
-                    <p>{section.text}</p>
+            <div className="card p-4 shadow-sm">
+              <Row className="align-items-center text-center">
+                {/* Image on Left if layout is right-text */}
+                {section.layout === "right-text" && (
+                  <Col md={6} className="mb-4 mb-md-0 d-flex justify-content-center">
+                    <img
+                      src={section.image}
+                      alt={section.title}
+                      className={`img-fluid ${section.imageStyle}`}
+                    />
                   </Col>
+                )}
 
-                  {/* Image on Right if layout is left-text */}
-                  {section.layout === "left-text" && (
-                    <Col className="mt-4 mt-md-0 d-flex justify-content-center">
-                      <img
-                        src={section.image}
-                        alt={section.title}
-                        className={`img-fluid ${section.imageStyle}`}
-                      />
-                    </Col>
-                  )}
-                </Row>
-              </div>
+                {/* Text */}
+                <Col className="text-md-start">
+                  <h2>{section.title}</h2>
+                  <p>{section.text}</p>
+                </Col>
+
+                {/* Image on Right if layout is left-text */}
+                {section.layout === "left-text" && (
+                  <Col className="mt-4 mt-md-0 d-flex justify-content-center">
+                    <img
+                      src={section.image}
+                      alt={section.title}
+                      className={`img-fluid ${section.imageStyle}`}
+                    />
+                  </Col>
+                )}
+              </Row>
             </div>
+          </div>
         ))}
       </div>
     </>

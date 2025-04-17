@@ -6,7 +6,6 @@ import NavBar from "./Components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./Components/Footer";
 import { Container } from "react-bootstrap";
-import About from "./Pages/About/page"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
