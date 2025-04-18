@@ -35,7 +35,7 @@ const FormPage: React.FC = () => {
 
   const text = 'Forms';
   const letters = text.split('').map((letter, index) => (
-    <span key={index} className="letter" style={{ color: 'white', fontWeight: 'bold' }}>
+    <span key={index} className="letter" style={{ color: 'black', fontWeight: 'bold', fontSize: '3rem' }}>
       {letter}
     </span>
   ));
@@ -74,13 +74,13 @@ const FormPage: React.FC = () => {
   ];
 
   return (
-    <div className="page-card">
-      <h1 className="cont-h rounded page-logo">{letters}</h1>
-      <div className="group-conts">
+    <div className="form-card">
+      <h1 className="bg-light rounded page-logo" style={{boxShadow: '0 4px 16px rgb(0, 0, 0)'}}>{letters}</h1>
+      <div className="grp-form">
         {groups.map((group, index) =>
           group.link ? (
-            <Link key={index} to={group.link} className="group-cont">
-              <h2 className="cont-head rounded">{group.title}</h2>
+            <Link key={index} to={group.link} className="group-form">
+              <h2 className="form-head rounded">{group.title}</h2>
               {/* <p className="card-body rounded my-2">{group.description}</p> */}
             </Link>
           ) : (

@@ -1,84 +1,101 @@
-/* ServicesPage.css */
-.cont-h {
+/* === General Layout & Containers === */
+.cont-h,
+.form-head {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+  color: black;
 }
-.page-card {
+
+.form-card {
   text-align: center;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgb(0, 0, 0);
-  margin-top: 5rem;
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin: 5rem 1rem 2rem 1rem;
 }
 
 .page-logo {
-  background-color: rgba(0, 0, 0, 0.70);
+  background-color: rgba(0, 0, 0, 0.7);
   margin-bottom: 20px;
 }
 
-.group-conts {
+/* === Card Grid === */
+.grp-form {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 20px;
 }
 
-.group-cont {
-  flex: 1 1 calc(20% - 10px);
-  margin: 5px;
-  text-align: center;
+.group-form {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; /* Makes it a circle */
+  margin: 10px;
   border: 2px solid #ccc;
-  padding: 15px;
-  border-radius: 20px;
+  background-color: #fff;
+  color: black;
   text-decoration: none;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Title inside the circle */
+.form-head {
+  font-size: 1rem;
+  text-align: center;
+  padding: 0 10px;
 }
 
-/* .group-cont h2 {
+
+/* === Headings & Descriptions inside Cards === */
+.group-form h2 {
   color: rgb(0, 100, 255);
-  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgba(0, 0, 0, 0.7); */
   padding: 8px;
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
-  font-size: 1.25rem;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
-} */
+  font-size: 1.5rem;
+  transition: transform 1s ease, color 0.4s ease;
+}
 
-.group-cont p {
-  color: #f1f1f1;
+.group-form p {
+  color: #000;
   text-align: justify;
   padding: 8px;
   font-size: 0.95rem;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
-  background-color: rgba(0, 0, 0, 0.11);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  transition: transform 0.4s ease, background-color 0.4s ease;
 }
 
-/* Hover Effects */
-.group-cont:hover {
+/* === Hover Effects === */
+.group-form:hover {
   transform: scale(1.05);
-  box-shadow: 0 2px 8px rgb(0, 0, 0);
 }
 
-
-.group-cont:hover h2 {
-    transform:  translateY(-5px); /* Slight zoom and lift */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
-    cursor: pointer;
-    background-color: blue; /* Slightly lighter on hover */
-    color:white
+.group-form:hover h2 {
+  transform: translateY(-5px);
+  /* color: rgb(103, 149, 233); */
 }
 
-.group-cont:hover p {
-  /* color: black; */
-  /* background-color: rgba(255, 255, 255, 0.5); */
-  /* box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5); */
+.group-form:hover p {
+  background-color: rgba(0, 0, 0, 0.08);
+  transform: translateY(3px);
+}
+
+/* === Responsive Fix for Cards === */
+@media (max-width: 992px) {
+  .group-form {
+    flex: 1 1 calc(45% - 10px);
+  }
+}
+
+@media (max-width: 576px) {
+  .group-form {
+    flex: 1 1 100%;
+  }
 }

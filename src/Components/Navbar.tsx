@@ -3,7 +3,6 @@ import { HashLink } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Styles/NavBar.css";
-import "./Styles/HomeLogo.css";
 
 const NavbarComponent: React.FC = () => {
   const location = useLocation();
@@ -54,11 +53,11 @@ const NavbarComponent: React.FC = () => {
       </Navbar>
 
       {/* Background slider */}
-      <div className="bg-slider h-screen w-full relative flex flex-col items-center justify-center" >
-        <div className="bg-slide bg-slide-1"></div>
-        <div className="bg-slide bg-slide-2"></div>
-        <div className="bg-slide bg-slide-3"></div>
-        <div className="bg-slide bg-slide-1"></div>
+      <div className="nav-slider h-screen w-full relative flex flex-col items-center justify-center">
+        {/* <div className="nav-slide bg-slide-1"></div>
+        <div className="nav-slide bg-slide-2"></div>
+        <div className="nav-slide bg-slide-3"></div>
+        <div className="nav-slide bg-slide-1"></div> */}
       </div>
     </>
   );

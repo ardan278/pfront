@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark text-light py-3 mt-auto" aria-label="Footer">
+    <footer className="bg-dark text-light py-3 mt-auto" aria-label="Footer" style={{ zIndex: 3, bottom: 0, width: "100%" }}>
       <Container>
         <Row className="justify-content-between">
           {/* Left section - Copyright */}
