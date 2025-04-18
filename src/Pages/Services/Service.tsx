@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Service.css';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ServicePage: React.FC = () => {
   const [animeLoaded, setAnimeLoaded] = useState(false);
@@ -32,6 +34,10 @@ const ServicePage: React.FC = () => {
       });
     }
   }, [animeLoaded]);
+
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   const text = 'Services';
   const letters = text.split('').map((letter, index) => (
@@ -75,11 +81,11 @@ const ServicePage: React.FC = () => {
 
   return (
     <div className="serv-card">
-      <h1 className="bg-light rounded page-logo" style={{boxShadow: '0 4px 16px rgb(0, 0, 0)'}}>{letters}</h1>
+      <h1 className="bg-light rounded page-logo" data-aos="fade-down" style={{boxShadow: '0 4px 16px rgb(0, 0, 0)'}}>{letters}</h1>
       <div className="grp-serv">
         {groups.map((group, index) =>
           group.link ? (
-            <Link key={index} to={group.link} className="group-serv">
+            <Link key={index} to={group.link} className="group-serv" data-aos="fade-up">
               <h2 className="serv-head rounded">{group.title}</h2><hr style={{color: 'black'}} />
               <p className="text-dark" style={{textAlign: 'justify'}}>{group.description}</p>
             </Link>

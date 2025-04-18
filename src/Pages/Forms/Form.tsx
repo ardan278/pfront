@@ -75,8 +75,8 @@ const FormPage: React.FC = () => {
 
   return (
     <div className="form-card">
-      <h1 className="bg-light rounded page-logo" style={{boxShadow: '0 4px 16px rgb(0, 0, 0)'}}>{letters}</h1>
-      <div className="grp-form">
+      <h1 className="bg-light rounded page-logo" data-aos="fade-down" style={{boxShadow: '0 4px 16px rgb(0, 0, 0)'}}>{letters}</h1>
+      <div className="grp-form" data-aos="fade-up">
         {groups.map((group, index) =>
           group.link ? (
             <Link key={index} to={group.link} className="group-form">
