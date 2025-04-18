@@ -103,7 +103,7 @@ const HomeLogo: React.FC = () => {
 
       {/* About Section */}
       <div id="about">
-        <div className="card py-5 bg-light text-dark">
+        <Container fluid className="py-5 text-dark" style={{ backgroundColor: '#f7f7f7a8', borderRadius: '20px' }}>
           <Row className="align-items-center text-center">
             <Col className="p-4 text-md-start" id='tea'>
               <h1>Welcome to Our Platform</h1>
@@ -117,12 +117,12 @@ const HomeLogo: React.FC = () => {
               />
             </Col>
           </Row>
-        </div>
+        </Container>
 
         {/* Dynamic Sections inside cards */}
         {sections.map((section, index) => (
-          <div key={index} className="my-4 justify-content-center">
-            <div className="card p-4 shadow-sm">
+          <div key={index} className="my-4 justify-content-center" style={{ backgroundColor: '#f7f7f7a8', borderRadius: '20px' }}>
+            <Container fluid className="py-5 text-dark">
               <Row className="align-items-center text-center">
                 {/* Image on Left if layout is right-text */}
                 {section.layout === "right-text" && (
@@ -152,7 +152,7 @@ const HomeLogo: React.FC = () => {
                   </Col>
                 )}
               </Row>
-            </div>
+            </Container>
           </div>
         ))}
       </div>

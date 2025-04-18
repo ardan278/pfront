@@ -92,7 +92,7 @@
   display: flex;
   z-index: -1;
   /* animation: scrollSlide 18s infinite linear; */
-  background-color: #00b7ff71;
+  background-color: #f7f7f771;
 }
 
 /* Individual slides of the slideshow */
