@@ -5,6 +5,7 @@ import Contact from "./Pages/Contact";
 import ServicePage from "./Pages/Services/Service.tsx";
 import SparePartForm from "./Pages/Services/SpareParts/SparePartForm";
 import FormsPage from "./Pages/Forms/Form"; // Ensure FormsPage is correctly imported
+import EventCalendar from "./Pages/EventCalendar/EventCalendar.tsx";
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/forms" element={<FormsPage />} />
       <Route path="/sparepartform" element={<SparePartForm />} />
+      <Route path="/event-calendar" element={<EventCalendar />} />
     </Routes>
   );
 };
