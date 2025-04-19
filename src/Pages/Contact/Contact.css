@@ -2,12 +2,17 @@
 
 .contact-page {
   text-align: center;
-  border-radius: 12px;
-  margin: 5rem 1rem 2rem 1rem;
+  padding: 5rem 1rem 0 1rem;
+  box-sizing: border-box;
+  min-height: calc(100vh - 5rem);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .con-logo {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.7);
   margin-bottom: 20px;
 }
 
@@ -30,8 +35,7 @@
 .contact-card {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  background-color: #f8f9fa; /* light background */
+  background-color: #f8f9fa;
   box-shadow: 0 4px 16px rgb(0, 0, 0);
   border-radius: 20px;
   width: 100%;
@@ -57,6 +61,7 @@
   width: 100%;
   margin-left: 10px;
 }
+
 .form-label.required::after {
   content: " *";
   color: red;
@@ -71,3 +76,92 @@
   background-color: white;
 }
 
+/* === General Layout & Containers === */
+.form-card {
+  text-align: center;
+  border-radius: 12px;
+  margin: 5rem 1rem 2rem 1rem;
+}
+
+.page-logo {
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 20px;
+}
+
+/* === Card Grid === */
+.grp-form {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.group-form {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 10px;
+  border: 2px solid #ccc;
+  background-color: #fff;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-head {
+  font-size: 1rem;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.group-form h2 {
+  color: rgb(0, 100, 255);
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+  transition: transform 1s ease, color 0.4s ease;
+}
+
+.group-form p {
+  color: #000;
+  text-align: justify;
+  padding: 8px;
+  font-size: 0.95rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+/* === Hover Effects === */
+.group-form:hover {
+  transform: scale(1.05);
+}
+
+.group-form:hover h2 {
+  transform: translateY(-5px);
+}
+
+.group-form:hover p {
+  background-color: rgba(0, 0, 0, 0.08);
+  transform: translateY(3px);
+}
+
+/* === Responsive Fix for Cards === */
+@media (max-width: 992px) {
+  .group-form {
+    flex: 1 1 calc(45% - 10px);
+  }
+}
+
+@media (max-width: 576px) {
+  .group-form {
+    flex: 1 1 100%;
+  }
+}

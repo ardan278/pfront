@@ -45,18 +45,36 @@ const EventCalendar: React.FC = () => {
       </span>
     ));
   
-  return (
-    <div className="flex justify-center p-4 " style={{ marginTop: "4rem" }}>
-      <h1 className="bg-light rounded page-logo text-center" data-aos="fade-down" style={{boxShadow: '0 4px 16px rgb(0, 0, 0)'}}>{letters}</h1>
-      <iframe
-        src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&mode=AGENDA&src=ZW4tZ2IudXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%234285F4"
-        style={{ borderRadius: "20px",boxShadow: '0 4px 16px rgb(0, 0, 0)'}}
-        width="100%"
-        height="500"
-        data-aos="fade-up"
-      ></iframe>
-    </div>
-  );
-};
+    return (
+      <div
+        className="flex justify-center"
+        style={{
+          textAlign: 'center',
+          borderRadius: '12px',
+          margin: '5rem 1rem 2rem 1rem'
+        }}
+      >
+        <h1
+          className="bg-light rounded page-logo text-center"
+          data-aos="fade-down"
+          style={{
+            boxShadow: '0 4px 16px rgb(0, 0, 0)'
+          }}
+        >
+          {letters}
+        </h1>
+        <iframe
+          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&mode=AGENDA&src=ZW4tZ2IudXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%234285F4"
+          style={{
+            borderRadius: '20px',
+            boxShadow: '0 4px 16px rgb(0, 0, 0)'
+          }}
+          width="100%"
+          height="480"
+          data-aos="fade-up"
+        ></iframe>
+      </div>
+    );
+  }    
 
 export default EventCalendar;

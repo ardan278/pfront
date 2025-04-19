@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { HashLink } from "react-router-hash-link";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Styles/NavBar.css";
 
@@ -37,28 +37,30 @@ const NavbarComponent: React.FC = () => {
           <Navbar.Toggle aria-controls="navbar-nav" />
           <Navbar.Collapse id="navbar-nav">
             <Nav className="ms-auto">
-              {navItems.map(({ to, label }) => (
-                <Nav.Link
-                  as={HashLink}
-                  smooth
-                  to={to}
-                  key={`${to}-${label}`}
-                  className={`fs-6 px-3 py-2 nav-link-hover text-light ${getIsActive(to) ? "active" : ""}`}
-                >
-                  {label}
-                </Nav.Link>
-              ))}
+              {navItems.map(({ to, label }) => {
+                const isHash = to.includes("#");
+                const LinkComponent = isHash ? HashLink : Link;
+
+                return (
+                  <Nav.Link
+                    as={LinkComponent}
+                    smooth
+                    to={to}
+                    key={`${to}-${label}`}
+                    className={`fs-6 px-3 py-2 nav-link-hover text-light ${getIsActive(to) ? "active" : ""}`}
+                  >
+                    {label}
+                  </Nav.Link>
+                );
+              })}
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
-      {/* Background slider */}
+      {/* Optional background area under navbar */}
       <div className="nav-slider h-screen w-full relative flex flex-col items-center justify-center">
-        {/* <div className="nav-slide bg-slide-1"></div>
-        <div className="nav-slide bg-slide-2"></div>
-        <div className="nav-slide bg-slide-3"></div>
-        <div className="nav-slide bg-slide-1"></div> */}
+        {/* Background elements if any */}
       </div>
     </>
   );

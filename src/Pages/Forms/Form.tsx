@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './Form.css';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
 
 const FormPage: React.FC = () => {
   const [animeLoaded, setAnimeLoaded] = useState(false);
 
+  // Load Anime.js dynamically
   useEffect(() => {
     if (!(window as any).anime) {
       const script = document.createElement('script');
@@ -17,6 +19,7 @@ const FormPage: React.FC = () => {
     }
   }, []);
 
+  // Trigger animation once anime is loaded
   useEffect(() => {
     if (animeLoaded) {
       const anime = (window as any).anime;
@@ -33,6 +36,11 @@ const FormPage: React.FC = () => {
     }
   }, [animeLoaded]);
 
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   const text = 'Forms';
   const letters = text.split('').map((letter, index) => (
     <span key={index} className="letter" style={{ color: 'black', fontWeight: 'bold', fontSize: '3rem' }}>
@@ -44,7 +52,7 @@ const FormPage: React.FC = () => {
     {
       title: 'Registration Form',
       description:
-        'Order complete spares of any elevator brand here. If you have your own service company maintaining / servicing other brand elevators, we can be your reliable partners',
+        'Order complete spares of any elevator brand here. If you have your own service company maintaining / servicing other brand elevators, we can be your reliable partners.',
       link: '/registrationform',
     },
     {
@@ -56,21 +64,15 @@ const FormPage: React.FC = () => {
     {
       title: 'Service Form',
       description:
-        'VTSTech Corp can help find great after sales comprehensive service package that suits YOUR budget.',
+        'VTSTech Corp can help find great after-sales comprehensive service package that suits YOUR budget.',
       link: '/serviceform',
     },
     {
       title: 'Part Request Form',
       description:
-        "Let's replace what is REQUIRED!! VTSTech Corp will provide you with qualified vendors and service providers near to place. We also specialize in creating new car designs for existing lifts as part of modernization projects, ensuring top-notch workmanship throughout the process.",
+        "Let's replace what is REQUIRED!! VTSTech Corp will provide you with qualified vendors and service providers near to your place. We also specialize in creating new car designs for existing lifts as part of modernization projects, ensuring top-notch workmanship throughout the process.",
       link: '/partrequestform',
     },
-    // {
-    //   title: 'Cab Interior',
-    //   description:
-    //     'We provide lift car standard designs and also manufacture bespoke designs and install assuring best workmanship using different materials to your selection for new elevators.',
-    //   link: '/contact',
-    // },
   ];
 
   return (
