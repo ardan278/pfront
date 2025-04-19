@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
 
   const text = 'Contact Us';
   const letters = text.split('').map((letter, index) => (
-    <span key={index} className="letter" style={{ color: 'black', fontWeight: 'bold', fontSize: '3rem' }}>
+    <span key={index} className="letter" style={{ color: 'black', fontWeight: 'bold', fontSize: 'clamp(2.5rem, 5vw, 3rem)' }}>
       {letter}
     </span>
   ));
@@ -93,33 +93,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         phone: value || "",
       }));
     };
-
-  const groups = [
-    {
-      title: 'Registration Form',
-      description:
-        'Order complete spares of any elevator brand here. If you have your own service company maintaining / servicing other brand elevators, we can be your reliable partners.',
-      link: '/registrationform',
-    },
-    {
-      title: 'Installation Form',
-      description:
-        'VTSTech Corp can help find best fit VT equipment based on usage and type of building. We offer both standard and custom lift car designs, utilizing a variety of materials chosen by you for new elevator installations.',
-      link: '/installationform',
-    },
-    {
-      title: 'Service Form',
-      description:
-        'VTSTech Corp can help find great after-sales comprehensive service package that suits YOUR budget.',
-      link: '/serviceform',
-    },
-    {
-      title: 'Part Request Form',
-      description:
-        "Let's replace what is REQUIRED!! VTSTech Corp will provide you with qualified vendors and service providers near to your place. We also specialize in creating new car designs for existing lifts as part of modernization projects, ensuring top-notch workmanship throughout the process.",
-      link: '/partrequestform',
-    },
-  ];
 
   return (
     <div className="form-card">

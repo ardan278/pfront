@@ -40,7 +40,7 @@ const EventCalendar: React.FC = () => {
   
     const text = 'Event Calendar';
     const letters = text.split('').map((letter, index) => (
-      <span key={index} className="letter" style={{ color: 'black', fontWeight: 'bold',fontSize: '3rem' }}>
+      <span key={index} className="letter" style={{ color: 'black', fontWeight: 'bold',fontSize: 'clamp(2.5rem, 5vw, 3rem)' }}>
         {letter}
       </span>
     ));
