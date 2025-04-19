@@ -1,7 +1,7 @@
 // App.tsx
 import { Routes, Route } from "react-router-dom";
 import HomeLogo from "./Components/HomeLogo";
-import Contact from "./Pages/Contact";
+import Contact from "./Pages/Contact/Contact.tsx";
 import ServicePage from "./Pages/Services/Service.tsx";
 import SparePartForm from "./Pages/Services/SpareParts/SparePartForm";
 import FormsPage from "./Pages/Forms/Form"; // Ensure FormsPage is correctly imported
