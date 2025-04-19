@@ -1,9 +1,9 @@
 /* General container for the logo section */
-.home-logo {
+.home-log {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 50vh;
   width: 100%;
   position: relative;
   z-index: 2;
@@ -11,7 +11,7 @@
 }
 
 /* Responsive Logo heading with black outline and white text */
-.home-logo h1 {
+.home-log h1 {
   font-size: 10vw; /* Responsive font size */
   font-weight: 900;
   color: white;
@@ -24,13 +24,13 @@
 
 /* Optional: Tweak for medium and large screens */
 @media (min-width: 768px) {
-  .home-logo h1 {
+  .home-log h1 {
     font-size: 8vw;
   }
 }
 
 @media (min-width: 1024px) {
-  .home-logo h1 {
+  .home-log h1 {
     font-size: 6vw;
   }
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Container, Row, Col, Alert, Card } from "react-bootstrap";
 import Confetti from "react-confetti";
 import axios from "axios";
-import './Styles/Contact.css'; // Importing the new CSS file
+import './Contact.css'; // Importing the new CSS file
 
 const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({

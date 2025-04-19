@@ -51,7 +51,7 @@ const HomeLogo: React.FC = () => {
       const anime = (window as any).anime;
       if (anime) {
         anime({
-          targets: '.home-logo .letter',
+          targets: '.home-log .letter',
           opacity: [0, 1],
           scale: [0.3, 1],
           translateY: [20, 0],
@@ -68,7 +68,7 @@ const HomeLogo: React.FC = () => {
 
   const text = 'VTSTechCorp.';
   const letters = text.split('').map((letter, index) => (
-    <span key={index} className="letter gradient-text">
+    <span key={index} className="letter gradient-text" style={{ alignItems: 'center',textAlign:'center' }} data-letter={letter}>
       {letter}
     </span>
   ));
@@ -76,30 +76,31 @@ const HomeLogo: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <div id="home" className="home-logo h-screen w-full relative overflow-hidden flex flex-col items-center justify-center">
-        <div className="bg-slider">
-          <div className="bg-slide bg-slide-1"></div>
-          <div className="bg-slide bg-slide-2"></div>
-          <div className="bg-slide bg-slide-3"></div>
-          <div className="bg-slide bg-slide-1"></div>
-        </div>
+      <div id="home" className="home-log min-h-screen w-full relative overflow-hidden flex items-center justify-center">
+  {/* Background Slider */}
+  <div className="bg-slider absolute top-0 left-0 w-full h-full z-0">
+    <div className="bg-slide bg-slide-1"></div>
+    <div className="bg-slide bg-slide-2"></div>
+    <div className="bg-slide bg-slide-3"></div>
+    <div className="bg-slide bg-slide-1"></div>
+  </div>
 
-        <div className='items-center'>
-          <div className='d-flex flex-col items-center'>
-            <h1 className="home-logo-text font-extrabold text-center text-white text-4xl sm:text-6xl">
-              {letters}
-            </h1>
-          </div>
-          <div className='col justify-center home-logo-h2 mt-5 d-flex gap-3'>
-            <HashLink smooth to="/services" className='home-logo-h2-btn'>
-              Services
-            </HashLink>
-            <HashLink smooth to="/forms" className="home-logo-h2-btn">
-              Forms
-            </HashLink>
-          </div>
-        </div>
-      </div>
+  {/* Foreground Content */}
+  <div className="z-10 flex flex-col items-center justify-center text-center">
+    <h1 className="home-logo-text font-extrabold text-white text-4xl sm:text-6xl">
+      {letters}
+    </h1>
+    <div className="home-logo-h2 mt-5 d-flex gap-3 justify-center">
+      <HashLink smooth to="/services" className="home-logo-h2-btn">
+        Services
+      </HashLink>
+      <HashLink smooth to="/forms" className="home-logo-h2-btn">
+        Forms
+      </HashLink>
+    </div>
+  </div>
+</div>
+
 
       {/* About Section */}
       <div id="about">
