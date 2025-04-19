@@ -18,6 +18,7 @@ const NavbarComponent: React.FC = () => {
 
   const navItems = [
     { to: "/#home", label: "Home" },
+    { to: "/#products", label: "Products" },
     { to: "/#about", label: "About" },
     { to: "/services", label: "Services" },
     { to: "/forms", label: "Forms" },

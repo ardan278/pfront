@@ -76,30 +76,44 @@ const HomeLogo: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <div id="home" className="home-log min-h-screen w-full relative overflow-hidden flex items-center justify-center">
-  {/* Background Slider */}
-  <div className="bg-slider absolute top-0 left-0 w-full h-full z-0">
-    <div className="bg-slide bg-slide-1"></div>
-    <div className="bg-slide bg-slide-2"></div>
-    <div className="bg-slide bg-slide-3"></div>
-    <div className="bg-slide bg-slide-1"></div>
-  </div>
+      <div id="home" className="home-log min-h-screen w-full relative overflow-hidden flex items-center justify-center mb-0 pb-0">
+        {/* Background Slider */}
+        <div className="bg-slider absolute top-0 left-0 w-full h-full z-0">
+          <div className="bg-slide bg-slide-1"></div>
+          <div className="bg-slide bg-slide-2"></div>
+          <div className="bg-slide bg-slide-3"></div>
+          <div className="bg-slide bg-slide-1"></div>
+        </div>
 
-  {/* Foreground Content */}
-  <div className="z-10 flex flex-col items-center justify-center text-center">
-    <h1 className="home-logo-text font-extrabold text-white text-4xl sm:text-6xl">
-      {letters}
-    </h1>
-    <div className="home-logo-h2 mt-5 d-flex gap-3 justify-center">
-      <HashLink smooth to="/services" className="home-logo-h2-btn">
-        Services
-      </HashLink>
-      <HashLink smooth to="/forms" className="home-logo-h2-btn">
-        Forms
-      </HashLink>
-    </div>
-  </div>
-</div>
+        {/* Foreground Content */}
+        <div className="z-10 flex flex-col items-center justify-center text-center">
+          <h1 className="home-logo-text font-extrabold text-white text-4xl sm:text-6xl">
+            {letters}
+          </h1>
+          <div className="home-logo-h2 mt-5 d-flex gap-3 justify-center">
+            <HashLink smooth to="/services" className="home-logo-h2-btn">
+              Services
+            </HashLink>
+            <HashLink smooth to="/forms" className="home-logo-h2-btn">
+              Forms
+            </HashLink>
+          </div>
+        </div>
+      </div>
+
+      {/* Products Section */}
+      <div id="products">
+        <Container>
+          <Row className="justify-content-center">
+            <Col>
+              <div className="card shadow rounded p-4 text-center">
+                <h5 className="mb-3">Product Placeholder</h5>
+                <p>This is an empty card. Add product details here.</p>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
 
 
       {/* About Section */}

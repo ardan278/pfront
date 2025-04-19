@@ -181,3 +181,15 @@
     background-color: blue; /* Slightly lighter on hover */
     color:white
 }
+/* 
+.dropdown-menu {
+  background-color: #343a40;
+}
+
+.dropdown-item {
+  color: white !important;
+}
+
+.dropdown-item:hover {
+  background-color: #495057;
+} */
