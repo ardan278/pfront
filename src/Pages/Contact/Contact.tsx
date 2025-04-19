@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import 'react-phone-number-input/style.css'; // Import style for phone input
 import './Contact.css';
@@ -8,7 +8,6 @@ const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    countryCode: "", // Leave countryCode empty for PhoneInput
     phone: "",
     query: "",
   });
@@ -23,15 +22,25 @@ const ContactUs: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handlePhoneChange = (value: string | undefined) => {
+    setFormData((prev) => ({
+      ...prev,
+      phone: value || "",
+    }));
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      const countryCode = formData.phone ? formData.phone.slice(0, 3) : ''; // Assuming the first 3 digits of the phone number are the country code
+      const phoneNumber = formData.phone.slice(3); // The rest of the number is the phone number
+
       await axios.post(
         "https://bright-ewe-inherently.ngrok-free.app/api/send-email/",
         {
           email: formData.email,
           subject: formData.query,
-          message: `Hello ${formData.name}, we have received your query: ${formData.query}`,
+          message: `Hello ${formData.name}, we have received your query: ${formData.query}. Phone: ${countryCode} ${phoneNumber}`,
         }
       );
       setSubmitted(true);
@@ -50,6 +59,7 @@ const ContactUs: React.FC = () => {
       <div className="form-wrapper" data-aos="fade-up">
         <div className="contact-card">
           <form onSubmit={handleSubmit} className="contact-form">
+
             {/* Name input */}
             <div className="mb-3">
               <label htmlFor="name" className="form-label required">Name</label>
@@ -87,7 +97,7 @@ const ContactUs: React.FC = () => {
                 international
                 defaultCountry="IN"
                 value={formData.phone}
-                onChange={(value) => setFormData((prev) => ({ ...prev, phone: value }))}
+                onChange={handlePhoneChange}
                 className="form-control-phone"
                 placeholder="Enter phone number"
                 required
