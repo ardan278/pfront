@@ -27,28 +27,75 @@
 }
 
 .group-serv {
+  position: relative;
   flex: 1 1 calc(20% - 10px);
   margin: 5px;
   text-align: center;
   border: 2px solid #ccc;
   padding: 15px;
   border-radius: 20px;
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   text-decoration: none;
-  color: black;
-  background-color: #fff;
-  transition: transform 0.5s ease, color 0.5s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 1);
+  overflow: hidden;
+}
+
+/* === Circular Animated Border Effect === */
+.group-serv::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 4px solid rgb(0, 100, 255);
+  opacity: 0;
+  transition: opacity 0.3s ease, border 0.6s ease;
+  z-index: 0;
+}
+
+/* On hover: Animate the border around the card */
+.group-serv:hover::before {
+  opacity: 1;
+  border: 4px solid rgb(0, 100, 255);
+  transition: border 0.6s ease, opacity 0.3s ease;
 }
 
 /* === Headings & Descriptions inside Cards === */
 .group-serv h2 {
   color: rgb(0, 100, 255);
-  /* background-color: rgba(0, 0, 0, 0.7); */
   padding: 8px;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
   font-size: 1.5rem;
-  transition: transform 1s ease, color 0.4s ease;
+  position: relative;
+  overflow: visible; /* changed from hidden to prevent clipping of underline */
+  transition: transform 0.5s ease, color 0.4s ease;
+}
+
+/* Underline Animation From Center (independent from h2 movement) */
+.group-serv h2::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; /* slightly below the text to avoid overlap during translation */
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: rgb(0, 100, 255);
+  transition: width 0.4s ease, left 0.4s ease;
+  border-radius: 2px;
+}
+
+.group-serv:hover h2::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Only h2 text moves on hover */
+.group-serv:hover h2 {
+  transform: translateY(-5px);
+  color: rgb(0, 89, 255);
 }
 
 .group-serv p {
@@ -56,25 +103,19 @@
   text-align: justify;
   padding: 8px;
   font-size: 0.95rem;
-  background-color: rgba(0, 0, 0, 0.05);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   border-radius: 6px;
-  transition: transform 0.4s ease, background-color 0.4s ease;
 }
 
 /* === Hover Effects === */
 .group-serv:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .group-serv:hover h2 {
   transform: translateY(-5px);
   color: rgb(0, 89, 255);
-}
-
-.group-serv:hover p {
-  background-color: rgba(0, 0, 0, 0.08);
-  transform: translateY(3px);
 }
 
 /* === Responsive Fix for Cards === */

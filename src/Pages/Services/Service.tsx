@@ -86,7 +86,7 @@ const ServicePage: React.FC = () => {
         {groups.map((group, index) =>
           group.link ? (
             <Link key={index} to={group.link} className="group-serv" data-aos="fade-up">
-              <h2 className="serv-head rounded">{group.title}</h2><hr style={{color: 'black'}} />
+              <h2 className="serv-head rounded">{group.title}</h2>
               <p className="text-dark" style={{textAlign: 'justify'}}>{group.description}</p>
             </Link>
           ) : (

@@ -1,15 +1,19 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import "./Styles/NavBar.css";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import "./Styles/NavBar.css";
 
 const NavbarComponent: React.FC = () => {
   const location = useLocation();
   const [activePath, setActivePath] = useState(location.pathname + location.hash);
+  const [expanded, setExpanded] = useState(false); // Add expanded state to manage navbar collapse
 
+  // Update activePath and collapse navbar on location change
   useEffect(() => {
     setActivePath(location.pathname + location.hash);
+    setExpanded(false); // Collapse navbar when location changes
+    window.scrollTo(0, 0); // Scroll to top whenever location changes
   }, [location]);
 
   const getIsActive = (to: string): boolean => {
@@ -28,13 +32,23 @@ const NavbarComponent: React.FC = () => {
 
   return (
     <>
-      <Navbar expand="lg" variant="dark" bg="dark" fixed="top" className="px-3 shadow-sm">
+      <Navbar
+        expand="lg"
+        variant="dark"
+        bg="dark"
+        fixed="top"
+        className="px-3 shadow-sm"
+        expanded={expanded}
+      >
         <Container fluid>
           <Navbar.Brand as={HashLink} to="/" className="fs-3 fw-semibold text-light">
             VTSTechCorp
           </Navbar.Brand>
 
-          <Navbar.Toggle aria-controls="navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="navbar-nav"
+            onClick={() => setExpanded(!expanded)} // Toggle navbar on click
+          />
           <Navbar.Collapse id="navbar-nav">
             <Nav className="ms-auto">
               {navItems.map(({ to, label }) => (
@@ -44,6 +58,7 @@ const NavbarComponent: React.FC = () => {
                   to={to}
                   key={`${to}-${label}`}
                   className={`fs-6 px-3 py-2 nav-link-hover text-light ${getIsActive(to) ? "active" : ""}`}
+                  onClick={() => setExpanded(false)} // Collapse navbar when link is clicked
                 >
                   {label}
                 </Nav.Link>

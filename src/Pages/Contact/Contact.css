@@ -2,24 +2,21 @@
 
 .contact-page {
   text-align: center;
-  padding: 5rem 1rem 0 1rem;
+  padding: 5rem 1rem;
+  background: #f7f7f7;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   min-height: calc(100vh - 5rem);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-.con-logo {
+.page-logo {
   background-color: rgba(0, 0, 0, 0.7);
   margin-bottom: 20px;
-}
-
-.con-logo .letter {
-  color: black;
-  font-weight: bold;
-  font-size: 3rem;
+  padding: 10px;
+  box-shadow: 0 4px 16px rgb(0, 0, 0);
   border-radius: 12px;
 }
 
@@ -35,18 +32,25 @@
 .contact-card {
   display: flex;
   flex-direction: column;
-  background-color: #f8f9fa;
-  box-shadow: 0 4px 16px rgb(0, 0, 0);
+  background-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   width: 100%;
   max-width: 600px;
+  padding: 2rem;
 }
 
-.contact-form {
+.contact-form .form-control {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  transition: border-color 0.3s ease;
   width: 100%;
-  padding: 1rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 16px rgb(0, 0, 0);
+}
+
+.contact-form .form-control:focus {
+  border-color: #0dcaf0;
+  box-shadow: 0 0 5px rgba(13, 202, 240, 0.5);
 }
 
 .success-message {
@@ -69,26 +73,19 @@
 
 .form-control-phone {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border-radius: 10px;
   border: 1px solid #ccc;
   margin-bottom: 1rem;
   background-color: white;
 }
 
-/* === General Layout & Containers === */
 .form-card {
   text-align: center;
   border-radius: 12px;
   margin: 5rem 1rem 2rem 1rem;
 }
 
-.page-logo {
-  background-color: rgba(0, 0, 0, 0.7);
-  margin-bottom: 20px;
-}
-
-/* === Card Grid === */
 .grp-form {
   display: flex;
   justify-content: space-around;
@@ -110,22 +107,14 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-head {
-  font-size: 1rem;
-  text-align: center;
-  padding: 0 10px;
+  transition: transform 0.3s ease;
 }
 
 .group-form h2 {
   color: rgb(0, 100, 255);
   padding: 8px;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
   font-size: 1.5rem;
-  transition: transform 1s ease, color 0.4s ease;
 }
 
 .group-form p {
@@ -134,9 +123,7 @@
   padding: 8px;
   font-size: 0.95rem;
   background-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   border-radius: 6px;
-  transition: transform 0.4s ease, background-color 0.4s ease;
 }
 
 /* === Hover Effects === */

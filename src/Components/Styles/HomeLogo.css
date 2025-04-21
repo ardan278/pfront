@@ -43,8 +43,8 @@
   height: 100%;
   display: flex;
   z-index: -1;
-  animation: scrollSlide 18s infinite linear;
-  background-color: black;
+  animation: scrollSlide 20s infinite linear; /* Smooth animation */
+  background-color: #000; /* Dark background */
 }
 
 /* Individual slides of the slideshow */
@@ -53,6 +53,7 @@
   height: 100%;
   background-size: cover;
   background-position: center;
+  filter: brightness(0.8); /* Dim images for better text contrast */
 }
 
 /* Specific images for each slide */
