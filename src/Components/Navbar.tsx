@@ -13,7 +13,6 @@ const NavbarComponent: React.FC = () => {
   useEffect(() => {
     setActivePath(location.pathname + location.hash);
     setExpanded(false); // Collapse navbar when location changes
-    window.scrollTo(0, 0); // Scroll to top whenever location changes
   }, [location]);
 
   const getIsActive = (to: string): boolean => {
