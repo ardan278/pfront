@@ -1,209 +1,109 @@
 /* ========== NAVBAR STYLES ========== */
 
+/* General Navbar Styles */
 .navbar {
-  z-index: 999;
-  background-color: #343a40; /* Professional dark background */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  background-color: #f8f9fa; /* Light background for navbar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+  height: 50px; /* Adjust navbar height */
 }
 
+.navbar .navbar-brand {
+  font-size: 1.75rem; /* Adjusted font size for brand */
+  font-weight: 600;
+  color: #343a40; /* Dark color for the brand */
+}
+
+/* Navbar Links */
+.nav-link {
+  font-size: 1rem; /* Adjust font size */
+  padding: 8px 15px;
+  color: #343a40; /* Dark color for links */
+  transition: color 0.3s, transform 0.3s; /* Smooth hover effect */
+}
+
+/* Hover Effect for Links */
+.nav-link:hover,
+.nav-link.active {
+  color: #0dcaf0 !important; /* Active color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Navbar Light Theme */
+.navbar-light {
+  background-color: #ffffff; /* Light background color */
+  border-bottom: 1px solid #ddd; /* Optional: Add a border at the bottom */
+}
+
+.navbar-light .navbar-brand {
+  color: #007bff; /* Change the brand color */
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #495057; /* Default text color for navbar links */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Active Link Styling for Navbar Light Theme */
+.navbar-light .navbar-nav .nav-link.active {
+  color: #0dcaf0 !important; /* Active link color */
+  border-bottom: 2px solid #0dcaf0; /* Optional: Underline active link */
+}
+
+/* Navbar Links Hover Effect for Navbar Light Theme */
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+/* Custom Navbar Styling for Mobile (Smaller Screens) */
+@media (max-width: 767px) {
+  /* Adjust Navbar Brand Size */
+  .navbar .navbar-brand {
+    font-size: 1.5rem; /* Adjust brand font size for mobile */
+  }
+
+  /* Adjust Navbar Link Font Size */
+  .navbar-light .navbar-nav .nav-link {
+    font-size: 1.1rem; /* Adjust font size on smaller screens */
+  }
+
+  /* Change Background for Collapsed Navbar */
+  .navbar-light .navbar-collapse {
+    background-color: #f8f9fa; /* Optional: Change background for collapsed navbar */
+  }
+}
+
+/* Nav Link Hover Effect (For Custom Hover) */
 .nav-link-hover {
   position: relative;
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .nav-link-hover:hover {
-  color: #0dcaf0 !important; /* Slight lift on hover */
+  color: #0dcaf0 !important; /* Change color on hover */
 }
 
-/* Hover and Active underline animation */
-/* .nav-link-hover::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 25%;
-  width: 50%;
-  height: 2px;
-  background-color: #0dcaf0;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s ease;
-} */
-
-.nav-link-hover:hover,
-.nav-link-hover.active {
+/* Active Nav Link */
+.navbar-nav .nav-link.active {
   color: #0dcaf0 !important;
-  text-decoration: none;
-}
-
-.nav-link-hover:hover::after,
-.nav-link-hover.active::after {
-  transform: scaleX(1);
-}
-
-/* Override Bootstrap .active if needed */
-.navbar .nav-link.active {
   border-bottom: 2px solid #0dcaf0;
-  color: #0dcaf0 !important;
 }
 
-/* Optional cleanup */
-.contact-link,
-.contact-link-text {
-  display: none !important;
-}
-
-/* General container for the logo section */
-.home-logo {
+/* Navbar Toggler Button */
+.navbar-toggler {
+  height: 30px; /* Match the height of the navbar */
+  border: none; /* Optional: Remove border */
+  padding: 0; /* Optional: Remove default padding */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
+  justify-content: center; /* Center icon horizontally */
+  align-items: center; /* Center icon vertically */
 }
 
-/* Responsive Logo heading with black outline and white text */
-.home-logo h1 {
-  font-size: 10vw; /* Responsive font size */
-  font-weight: 900;
-  color: white;
-  -webkit-text-stroke: 1px black;
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  line-height: 1.1;
+/* Navbar Toggler Icon */
+.navbar-toggler-icon {
+  width: 20px; /* Adjust the width of the icon */
+  height: 20px; /* Adjust the height of the icon */ /* Adjust color of the icon if needed */
 }
 
-/* Optional: Tweak for medium and large screens */
-@media (min-width: 768px) {
-  .home-logo h1 {
-    font-size: 8vw;
-  }
-}
-
-@media (min-width: 1024px) {
-  .home-logo h1 {
-    font-size: 6vw;
-  }
-}
-
-/* Background slideshow container with animation */
-.nav-slider {
-  position: fixed;
-  top: 3.7rem;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  z-index: -1;
-  /* animation: scrollSlide 18s infinite linear; */
-  background-color: #00c3ffa9;
-}
-
-/* Individual slides of the slideshow */
-.nav-slide {
-  flex: 0 0 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-}
-
-/* Specific images for each slide */
-.nav-slide-1 {
-  background-image: url('/Images/bg1.jpg');
-}
-
-.nav-slide-2 {
-  background-image: url('/Images/bg2.jpg');
-}
-
-.nav-slide-3 {
-  background-image: url('/Images/bg3.jpg');
-}
-
-/* Keyframe animation for sliding effect */
-@keyframes scrollSlide {
-  0% { transform: translateX(0); }
-  33.33% { transform: translateX(-100%); }
-  66.66% { transform: translateX(-200%); }
-  100% { transform: translateX(-300%); }
-}
-
-/* Gradient text effect (text with background clipping) */
-.gradient-text {
-  background: white;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-#about {
-  scroll-margin-top: 5rem;
-  margin-right: 1rem;
-  margin-left: 1rem;
-  margin-top: 1rem;
-  z-index: 2;
-}
-
-.home-logo-h2 {
-  font-size: 30px; /* Responsive font size */
-  font-weight: extrabold;
-  color: white;
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  line-height: 1.1;
-  margin-top: 2rem; /* Reduced the margin to place buttons closer to the text */
-  background-color: transparent;
-  border-color: white;
-  display: flex;
-  justify-content: center; /* Centers buttons horizontally */
-  gap: 2rem; /* Spacing between the buttons */
-  width: 100%;
-}
-
-.home-logo-h2 {
-  display: flex;
-  justify-content: center; /* Centers buttons horizontally */
-  gap: 2rem; /* Spacing between the buttons */
-  margin-top: 2rem;
-}
-
-.home-logo-h2-btn {
-  padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.521);
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: all 0.3s ease; /* Smooth transition for hover effect */
-  font-weight: 700;
-}
-
-.home-logo-h2-btn:hover {
-    transform:  translateY(-5px); /* Slight zoom and lift */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect */
-    cursor: pointer;
-    background-color: blue; /* Slightly lighter on hover */
-    color:white
-}
-/* 
-.dropdown-menu {
-  background-color: #343a40;
-}
-
-.dropdown-item {
-  color: white !important;
-}
-
-.dropdown-item:hover {
-  background-color: #495057;
-} */
-
-.navbar-nav .nav-link {
-  font-size: 1.1rem;
-}
-
-.navbar-nav .nav-dropdown-item {
-  font-size: 1rem;
+.navbar-brand{
+  margin-bottom: 2px;
 }

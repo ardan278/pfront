@@ -32,19 +32,18 @@ const NavbarComponent: React.FC = () => {
   return (
     <>
       <Navbar
-        expand="lg"
-        variant="dark"
-        bg="dark"
-        fixed="top"
-        className="px-3 shadow-sm"
-        expanded={expanded}
-      >
-        <Container fluid>
-          <Navbar.Brand as={HashLink} to="/" className="fs-3 fw-semibold text-light">
-            VTSTechCorp
-          </Navbar.Brand>
-
-          <Navbar.Toggle
+  bg="light"  // Background color of the navbar
+  variant="light"  // Light theme (change it to 'dark' if you prefer dark mode)
+  expand="lg"
+  fixed="top"
+  className="px-3 shadow-sm"
+  expanded={expanded}
+>
+  <Container fluid>
+    <Navbar.Brand as={HashLink} to="/" className="fs-5 fw-semibold text-dark">
+      VTSTechCorp
+      </Navbar.Brand>
+      <Navbar.Toggle
             aria-controls="navbar-nav"
             onClick={() => setExpanded(!expanded)} // Toggle navbar on click
           />
@@ -56,7 +55,7 @@ const NavbarComponent: React.FC = () => {
                   smooth
                   to={to}
                   key={`${to}-${label}`}
-                  className={`fs-6 px-3 py-2 nav-link-hover text-light ${getIsActive(to) ? "active" : ""}`}
+                  className={`fs-6 px-3 py-2 nav-link-hover text-dark ${getIsActive(to) ? "active" : ""}`}
                   onClick={() => setExpanded(false)} // Collapse navbar when link is clicked
                 >
                   {label}
