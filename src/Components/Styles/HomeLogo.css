@@ -11,6 +11,63 @@
   overflow: hidden; */
 }
 
+/* Bootstrap Carousel Background */
+.carousel-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.carousel-background .carousel {
+  height: 100%;
+}
+
+.carousel-background .carousel-inner {
+  height: 100%;
+}
+
+.carousel-background .carousel-item {
+  height: 100%;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.7);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-section {
+  background-color: transparent;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  margin: 0;  /* Ensures no horizontal gaps */
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 3.7rem; /* Adjust based on your navbar height */
+}
+
 /* Responsive text scaling for logo text */
 @media (min-width: 768px) {
   .home-log h1 {
@@ -24,7 +81,7 @@
   }
 }
 
-/* Background slideshow */
+/* Background slideshow - keeping for reference but not using */
 .bg-slider {
   position: fixed;
   top: 3.7rem;
@@ -68,15 +125,6 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-}
-.hero-section {
-  background-color: #0f172a; /* Or any dark tone */
-  width: 100%;
-  text-align: center;
-  z-index: 1;
-  position: relative;
-  margin: 0;  /* Ensures no horizontal gaps */
-  box-sizing: border-box;
 }
 
 /* Sections spacing */
