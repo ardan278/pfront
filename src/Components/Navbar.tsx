@@ -32,18 +32,36 @@ const NavbarComponent: React.FC = () => {
   return (
     <>
       <Navbar
-  bg="light"  // Background color of the navbar
-  variant="light"  // Light theme (change it to 'dark' if you prefer dark mode)
-  expand="lg"
-  fixed="top"
-  className="px-3 shadow-sm"
-  expanded={expanded}
->
-  <Container fluid>
-    <Navbar.Brand as={HashLink} to="/" className="fs-5 fw-semibold text-dark">
-      VTSTechCorp
-      </Navbar.Brand>
-      <Navbar.Toggle
+        bg="light"  // Background color of the navbar
+        variant="light"  // Light theme (change it to 'dark' if you prefer dark mode)
+        expand="lg"
+        fixed="top"
+        className="px-3 shadow-sm"
+        expanded={expanded}
+      >
+        <Container fluid>
+          <Navbar.Brand
+            as={HashLink}
+            to="/"
+            className="fs-5 fw-semibold"
+            style={{
+              fontFamily: "'Roboto Slab', serif",
+              background: "linear-gradient(90deg, #ef4444, #f59e0b, #3b82f6)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+              display: "inline-block",
+              fontSize: "clamp(2rem, 10vw, 6rem)", // Responsive magic here
+              fontWeight: "bold",
+              lineHeight: "1.1",
+              margin: "0.5em 0",
+              transition: "font-size 0.3s ease", // Smooth resizing
+            }}
+          >
+            VTSTechCorp
+          </Navbar.Brand>
+
+          <Navbar.Toggle
             aria-controls="navbar-nav"
             onClick={() => setExpanded(!expanded)} // Toggle navbar on click
           />
@@ -55,8 +73,22 @@ const NavbarComponent: React.FC = () => {
                   smooth
                   to={to}
                   key={`${to}-${label}`}
-                  className={`fs-6 px-3 py-2 nav-link-hover text-dark ${getIsActive(to) ? "active" : ""}`}
-                  onClick={() => setExpanded(false)} // Collapse navbar when link is clicked
+                  className={`fs-6 px-3 py-2 nav-link-hover ${getIsActive(to) ? "active" : ""}`}
+                  style={{
+                    fontFamily: "'Roboto Slab', serif",
+                    background: "linear-gradient(90deg, #ef4444, #f59e0b, #3b82f6)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                    lineHeight: "1.1",
+                    transition: "font-size 0.3s ease",
+                  }}
+                  onClick={() => {
+                    setExpanded(false);
+                    if (!to.includes("#")) {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }}
                 >
                   {label}
                 </Nav.Link>

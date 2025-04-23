@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './Styles/HomeLogo.css';
 import Blog2 from "../assets/images/peopleHandOver.jpg";
@@ -14,8 +14,6 @@ const sections = [
     image: Blog1,
     layout: "left-text",
     bgClass: "bg-light",
-    imageStyle: "w-[75%] h-auto rounded-[25px] mx-auto d-block",
-    animation: "fade-right"
   },
   {
     title: "Our Vision",
@@ -23,8 +21,6 @@ const sections = [
     image: Blog2,
     layout: "right-text",
     bgClass: "",
-    imageStyle: "w-[70%] h-auto rounded-[50px] mx-auto d-block shadow-md",
-    animation: "fade-left"
   },
   {
     title: "Our Values",
@@ -32,81 +28,47 @@ const sections = [
     image: Blog3,
     layout: "left-text",
     bgClass: "bg-light",
-    imageStyle: "w-[70%] h-auto object-cover rounded-[20px] mx-auto d-block shadow-md",
-    animation: "fade-right"
   },
 ];
 
 const HomeLogo: React.FC = () => {
-  useEffect(() => {
-    const loadAnimeScript = () => {
-      const script = document.createElement('script');
-      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js';
-      script.async = true;
-      script.onload = initializeAnime;
-      document.body.appendChild(script);
-    };
-
-    const initializeAnime = () => {
-      const anime = (window as any).anime;
-      if (anime) {
-        anime({
-          targets: '.home-log .letter',
-          opacity: [0, 1],
-          scale: [0.3, 1],
-          translateY: [20, 0],
-          easing: 'easeOutExpo',
-          duration: 800,
-          delay: anime.stagger(300),
-          loop: true,
-        });
-      }
-    };
-
-    loadAnimeScript();
-  }, []);
-
-  const text = 'VTSTechCorp.';
-  const letters = text.split('').map((letter, index) => (
-    <span key={index} className="letter gradient-text" style={{ alignItems: 'center',textAlign:'center' }} data-letter={letter}>
-      {letter}
-    </span>
-  ));
-
   return (
     <>
-      {/* Hero Section */}
-      <div id="home" className="home-log min-h-screen w-full relative overflow-hidden flex items-center justify-center mb-0 pb-0">
-        {/* Background Slider */}
-        <div className="bg-slider absolute top-0 left-0 w-full h-full z-0">
-          <div className="bg-slide bg-slide-1"></div>
-          <div className="bg-slide bg-slide-2"></div>
-          <div className="bg-slide bg-slide-3"></div>
-          <div className="bg-slide bg-slide-1"></div>
-        </div>
+    <div className="d-flex flex-column justify-content-center align-items-center text-center">
+      <div id="home" className="hero-section w-100">
+      <h1 style={{ 
+        fontFamily: "'Roboto Slab', serif",
+        background: "linear-gradient(90deg, #ef4444, #f59e0b, #3b82f6)",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        color: "transparent",
+        display: "inline-block",
+        fontSize: "clamp(2rem, 10vw, 6rem)",
+        fontWeight: "bold",
+        lineHeight: "1.1",
+        margin: "0.5em 0",
+        transition: "font-size 0.3s ease"
+      }}>
+        VTSTechCorp
+      </h1>
 
-        {/* Foreground Content */}
-        <div className="z-10 flex flex-col items-center justify-center text-center">
-          <h1 className="home-logo-text font-extrabold text-white text-4xl sm:text-6xl">
-            {letters}
-          </h1>
-          <div className="home-logo-h2 mt-5 d-flex gap-3 justify-center">
-            <HashLink smooth to="/services" className="home-logo-h2-btn">
-              Services
-            </HashLink>
-            <HashLink smooth to="/forms" className="home-logo-h2-btn">
-              Forms
-            </HashLink>
-          </div>
-        </div>
+      <div className="mt-2 mb-3 d-flex gap-3 justify-content-center flex-wrap" style={{ marginBottom: "5rem" }}>
+        <HashLink smooth to="/services" className="home-logo-h2-btn home-logo-h2-btn-1">
+          Services
+        </HashLink>
+        <HashLink smooth to="/forms" className="home-logo-h2-btn home-logo-h2-btn-2">
+          Forms
+        </HashLink>
       </div>
+    </div>
+
 
       {/* Products Section */}
-      <div id="products">
-        <Container>
-          <Row className="justify-content-center">
+      <div id="products" className="container bg-secondary p-5 text-light" style={{ borderRadius: '20px',marginTop: '1rem', marginBottom: '1rem',marginRight: '1rem',marginLeft: '1rem' }}>
+        <Container fluid className="justify-content-center">
+          <Row>
             <Col>
-              <div className="card shadow rounded p-4 text-center">
+              <div className="py-1">
                 <h5 className="mb-3">Product Placeholder</h5>
                 <p>This is an empty card. Add product details here.</p>
               </div>
@@ -115,54 +77,57 @@ const HomeLogo: React.FC = () => {
         </Container>
       </div>
 
-
-      {/* About Section */}
+      {/* About + Dynamic Sections */}
       <div id="about">
         <Container fluid className="py-5 text-dark" style={{ backgroundColor: '#f7f7f7a8', borderRadius: '20px' }}>
-          <Row className="align-items-center text-center">
-            <Col className="p-4 text-md-start" id='tea'>
+          <Row className="align-items-center text-center text-md-start">
+            <Col md={6} className="p-4">
               <h1>Welcome to Our Platform</h1>
               <p>We provide high-quality services to help you achieve your goals.</p>
             </Col>
-            <Col className="d-flex justify-content-center">
+            <Col md={6} className="d-flex justify-content-center">
               <img
                 src={Escalator}
                 alt="Hero"
-                className="img-fluid rounded w-75"
+                className="img-fluid rounded"
+                style={{ width: "75%" }}
               />
             </Col>
           </Row>
         </Container>
 
-        {/* Dynamic Sections inside cards */}
+        {/* Dynamic Sections */}
         {sections.map((section, index) => (
-          <div key={index} className="my-4 justify-content-center" style={{ backgroundColor: '#f7f7f7a8', borderRadius: '20px' }}>
+          <div
+            key={index}
+            className={`my-4 ${section.bgClass}`}
+            style={{ borderRadius: '20px' }}
+          >
             <Container fluid className="py-5 text-dark">
-              <Row className="align-items-center text-center">
-                {/* Image on Left if layout is right-text */}
+              <Row className="align-items-center text-center text-md-start">
                 {section.layout === "right-text" && (
                   <Col md={6} className="mb-4 mb-md-0 d-flex justify-content-center">
                     <img
                       src={section.image}
                       alt={section.title}
-                      className={`img-fluid ${section.imageStyle}`}
+                      className="img-fluid rounded"
+                      style={{ width: "70%", height: "auto" }}
                     />
                   </Col>
                 )}
 
-                {/* Text */}
-                <Col className="text-md-start">
+                <Col md={6}>
                   <h2>{section.title}</h2>
                   <p>{section.text}</p>
                 </Col>
 
-                {/* Image on Right if layout is left-text */}
                 {section.layout === "left-text" && (
-                  <Col className="mt-4 mt-md-0 d-flex justify-content-center">
+                  <Col md={6} className="mt-4 mt-md-0 d-flex justify-content-center">
                     <img
                       src={section.image}
                       alt={section.title}
-                      className={`img-fluid ${section.imageStyle}`}
+                      className="img-fluid rounded"
+                      style={{ width: "70%", height: "auto" }}
                     />
                   </Col>
                 )}
@@ -171,6 +136,7 @@ const HomeLogo: React.FC = () => {
           </div>
         ))}
       </div>
+    </div>
     </>
   );
 };
