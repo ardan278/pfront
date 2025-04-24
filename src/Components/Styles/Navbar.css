@@ -2,108 +2,167 @@
 
 /* General Navbar Styles */
 .navbar {
-  background-color: #f8f9fa; /* Light background for navbar */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
-  height: 50px; /* Adjust navbar height */
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 50px;
+  transition: all 0.3s ease;
 }
 
+/* Scrolled Navbar */
+.navbar-scrolled {
+  background-color: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+}
+
+/* Brand Styling */
 .navbar .navbar-brand {
-  font-size: 1.75rem; /* Adjusted font size for brand */
+  font-size: 1.75rem;
   font-weight: 600;
-  color: #343a40; /* Dark color for the brand */
-}
-
-/* Navbar Links */
-.nav-link {
-  font-size: 1rem; /* Adjust font size */
-  padding: 8px 15px;
-  color: #343a40; /* Dark color for links */
-  transition: color 0.3s, transform 0.3s; /* Smooth hover effect */
-}
-
-/* Hover Effect for Links */
-.nav-link:hover,
-.nav-link.active {
-  color: #0dcaf0 !important; /* Active color */
-  text-decoration: none; /* Remove underline */
-}
-
-/* Navbar Light Theme */
-.navbar-light {
-  background-color: #ffffff; /* Light background color */
-  border-bottom: 1px solid #ddd; /* Optional: Add a border at the bottom */
-}
-
-.navbar-light .navbar-brand {
-  color: #007bff; /* Change the brand color */
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: #495057; /* Default text color for navbar links */
-  transition: color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-/* Active Link Styling for Navbar Light Theme */
-.navbar-light .navbar-nav .nav-link.active {
-  color: #0dcaf0 !important; /* Active link color */
-  border-bottom: 2px solid #0dcaf0; /* Optional: Underline active link */
-}
-
-/* Navbar Links Hover Effect for Navbar Light Theme */
-.navbar-light .navbar-nav .nav-link:hover {
-  color: #007bff; /* Change color on hover */
-}
-
-/* Custom Navbar Styling for Mobile (Smaller Screens) */
-@media (max-width: 767px) {
-  /* Adjust Navbar Brand Size */
-  .navbar .navbar-brand {
-    font-size: 1.5rem; /* Adjust brand font size for mobile */
-  }
-
-  /* Adjust Navbar Link Font Size */
-  .navbar-light .navbar-nav .nav-link {
-    font-size: 1.1rem; /* Adjust font size on smaller screens */
-  }
-
-  /* Change Background for Collapsed Navbar */
-  .navbar-light .navbar-collapse {
-    background-color: #f8f9fa; /* Optional: Change background for collapsed navbar */
-  }
-}
-
-/* Nav Link Hover Effect (For Custom Hover) */
-.nav-link-hover {
-  position: relative;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-link-hover:hover {
-  color: #0dcaf0 !important; /* Change color on hover */
-}
-
-/* Active Nav Link */
-.navbar-nav .nav-link.active {
-  color: #0dcaf0 !important;
-  border-bottom: 2px solid #0dcaf0;
-}
-
-/* Navbar Toggler Button */
-.navbar-toggler {
-  height: 30px; /* Match the height of the navbar */
-  border: none; /* Optional: Remove border */
-  padding: 0; /* Optional: Remove default padding */
-  display: flex;
-  justify-content: center; /* Center icon horizontally */
-  align-items: center; /* Center icon vertically */
-}
-
-/* Navbar Toggler Icon */
-.navbar-toggler-icon {
-  width: 20px; /* Adjust the width of the icon */
-  height: 20px; /* Adjust the height of the icon */ /* Adjust color of the icon if needed */
-}
-
-.navbar-brand{
+  color: #343a40;
   margin-bottom: 2px;
+  margin-right: 2rem;
+  padding: 0;
+}
+
+.brand-text {
+  font-family: 'Courier New', Courier, monospace;
+  background: linear-gradient(90deg, #ef4444, #f59e0b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  transition: all 0.3s ease;
+}
+
+/* Navigation Links */
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.2rem;
+  color: #333;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ef4444, #f59e0b);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover {
+  color: #ef4444;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 70%;
+}
+
+.nav-link.active {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Toggler Button */
+.navbar-toggler {
+  height: 30px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0.5rem;
+  /* background-color: transparent; */
+  transition: all 0.2s ease;
+  /* color: inherit; */
+}
+
+/* .navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+} */
+
+.navbar-toggler-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Contact Button */
+/* .contact-button {
+  background-image: linear-gradient(90deg, #ef4444, #f59e0b);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  border-radius: 4px;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+} */
+
+/* .contact-button:hover,
+.contact-button:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+  background-image: linear-gradient(90deg, #ef4444, #f59e0b);
+  border: none;
+} */
+
+/* Transparent Nav State */
+.navbar:not(.navbar-scrolled) {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* .navbar:not(.navbar-scrolled) .nav-link,
+.navbar:not(.navbar-scrolled) .navbar-toggler,
+.navbar:not(.navbar-scrolled) .brand-text {
+  color: #fff;
+} */
+
+.navbar:not(.navbar-scrolled) .brand-text {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background-color: white;
+    margin: 0.5rem -1rem -0.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-link {
+    color: #333 !important;
+    padding: 0.75rem 1rem !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .contact-button {
+    margin: 0.5rem 0;
+    display: inline-block;
+    width: auto;
+  }
+
+  .navbar:not(.navbar-scrolled) .navbar-collapse {
+    background-color: rgba(255, 255, 255, 0.97);
+  }
+}
+
+@media (max-width: 576px) {
+  .brand-text {
+    font-size: 1.5rem;
+  }
 }

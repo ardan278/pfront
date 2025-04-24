@@ -1,0 +1,156 @@
+.search-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.search-icon {
+  /* width: 40px;
+  height: 40px; */
+  /* display: flex;
+  align-items: center; */
+  justify-content: center;
+  color: inherit;
+  cursor: pointer;
+  /* font-size: 18px; */
+  transition: all 0.3s ease;
+}
+
+.search-icon:hover {
+  color: #ef4444;
+}
+
+.search-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: -300px;
+  margin-top: 15px;
+  width: 350px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(90deg, #ef4444, #f59e0b);
+  position: relative;
+}
+
+.search-input-icon {
+  color: white;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 4px;
+}
+
+.search-close-icon {
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.search-close-icon:hover {
+  transform: scale(1.2);
+}
+
+.search-results {
+  max-height: 350px;
+  overflow-y: auto;
+  background-color: white;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: #f5f5f5;
+}
+
+.result-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  color: #555;
+}
+
+.result-icon {
+  font-size: 14px;
+}
+
+.button-icon {
+  color: #f59e0b;
+}
+
+.form-icon {
+  color: #ef4444;
+}
+
+.result-content {
+  flex: 1;
+}
+
+.result-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.result-subtext {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 992px) {
+  .search-panel {
+    position: fixed;
+    top: 50px; /* Adjust based on your navbar height */
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-top: 0;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-input-wrapper {
+    padding: 8px 10px;
+  }
+  
+  .search-input {
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+}
