@@ -8,6 +8,7 @@ import Blog1 from "../assets/images/1523699544907.png";
 import Blog3 from "../assets/images/b3_part.jpg";
 import MoveWalks from "../assets/images/MoveWalks.jpg";
 import { HashLink } from 'react-router-hash-link';
+import { FaChartLine, FaCogs, FaShieldAlt } from 'react-icons/fa';
 
 const sections = [
   {
@@ -57,16 +58,17 @@ const HomeLogo: React.FC = () => {
 
   return (
     <div className="home-page">
-      
       {/* Hero Section */}
-      <section className="hero-section" id="home">
-        <div className="content-overlay container text-center">
+      <section id="home">
+        <div className="hero-background">
+        </div>
+        <div className="content-overlay container">
           <h1 className="gradient-text">VTSTechCorp</h1>
           <div className="hero-buttons">
-            <HashLink smooth to="/services" className="home-logo-h2-btn home-logo-h2-btn-1">
+            <HashLink smooth to="/services" className="home-logo-btn btn-primary">
               Services
             </HashLink>
-            <HashLink smooth to="/forms" className="home-logo-h2-btn home-logo-h2-btn-2">
+            <HashLink smooth to="/forms" className="home-logo-btn btn-secondary">
               Forms
             </HashLink>
           </div>
@@ -74,28 +76,28 @@ const HomeLogo: React.FC = () => {
       </section>
 
       {/* Features */}
-      <section className="features-section py-5 bg-light">
+      <section className="features-section py-5">
         <Container>
-          <h2 className="section-title text-center">Why Choose Us</h2>
+          <h2 className="section-title">Why Choose Us</h2>
           <div className="section-divider mx-auto mb-4"></div>
           <Row className="text-center">
             <Col md={4}>
               <div className="feature-card">
-                <i className="fas fa-chart-line feature-icon"></i>
+                <FaChartLine className="feature-icon" />
                 <h3>Industry Experience</h3>
                 <p>Over 20 years of experience in providing vertical transportation solutions.</p>
               </div>
             </Col>
             <Col md={4}>
               <div className="feature-card">
-                <i className="fas fa-cogs feature-icon"></i>
+                <FaCogs className="feature-icon" />
                 <h3>Quality Service</h3>
                 <p>Committed to delivering exceptional service and maintenance support.</p>
               </div>
             </Col>
             <Col md={4}>
               <div className="feature-card">
-                <i className="fas fa-shield-alt feature-icon"></i>
+                <FaShieldAlt className="feature-icon" />
                 <h3>Safety First</h3>
                 <p>Adhering to the highest safety standards and regulations in the industry.</p>
               </div>
@@ -107,7 +109,7 @@ const HomeLogo: React.FC = () => {
       {/* Products */}
       <section id="products" className="products-section py-5">
         <Container>
-          <h2 className="section-title text-center">Our Products</h2>
+          <h2 className="section-title">Our Products</h2>
           <div className="section-divider mx-auto mb-4"></div>
           <Row>
             {featuredProducts.map(product => (
@@ -121,7 +123,7 @@ const HomeLogo: React.FC = () => {
                   <div className="product-details">
                     <h3>{product.title}</h3>
                     <p>{product.description}</p>
-                    <Button variant="outline-primary">Learn More</Button>
+                    <Button variant="outline-primary" className="product-btn">Learn More</Button>
                   </div>
                 </div>
               </Col>
@@ -131,9 +133,9 @@ const HomeLogo: React.FC = () => {
       </section>
 
       {/* About */}
-      <section id="about" className="about-section py-5 bg-light">
+      <section id="about" className="about-section py-5">
         <Container>
-          <h2 className="section-title text-center">About Us</h2>
+          <h2 className="section-title">About Us</h2>
           <div className="section-divider mx-auto mb-4"></div>
           <Carousel
             activeIndex={index}
@@ -146,7 +148,7 @@ const HomeLogo: React.FC = () => {
             {sections.map((section, idx) => (
               <Carousel.Item key={idx}>
                 <div className="carousel-slide" style={{ backgroundImage: `url(${section.image})` }}>
-                  <div className="carousel-overlay text-center">
+                  <div className="carousel-overlay">
                     <h2>{section.title}</h2>
                     <p>{section.text}</p>
                   </div>
@@ -158,12 +160,12 @@ const HomeLogo: React.FC = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="cta-section text-center py-5">
+      <section className="cta-section">
         <Container>
           <div className="cta-content">
             <h2>Ready to elevate your building experience?</h2>
             <p>Contact our team today for a consultation on your vertical transportation needs.</p>
-            <HashLink smooth to="/contact" className="cta-button btn btn-primary mt-3">Get in Touch</HashLink>
+            <HashLink smooth to="/contact" className="cta-button">Get in Touch</HashLink>
           </div>
         </Container>
       </section>
