@@ -1,132 +1,354 @@
-/* === General Layout & Containers === */
-.cont-h,
-.serv-head {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
+/* Services Page Base Styles */
+.services-page {
+  width: 100%;
+  overflow-x: hidden;
+  --primary-color: #ef4444;
+  --secondary-color: #f59e0b;
+  --dark-color: #333;
+  --light-color: #fff;
+  color: var(--dark-color);
 }
 
-.serv-card {
-  text-align: center;
-  border-radius: 12px;
-  margin: 5rem 1rem 2rem 1rem;
-}
-
-.page-logo {
-  background-color: rgba(0, 0, 0, 0.7);
-  margin-bottom: 20px;
-}
-
-/* === Card Grid === */
-.grp-serv {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.group-serv {
+/* Hero Section */
+.services-hero {
   position: relative;
-  flex: 1 1 calc(20% - 10px);
-  margin: 5px;
-  text-align: center;
-  border: 2px solid #ccc;
-  padding: 15px;
-  border-radius: 20px;
-  background-color: #ffffff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
+  height: 30vh;
+  min-height: 30px;
+  background-image: url('https://images.unsplash.com/photo-1603431319302-8872bfcb7898?q=80&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -70px; /* Adjust based on navbar height */
+  padding-top: 70px;
   overflow: hidden;
 }
 
-/* === Circular Animated Border Effect === */
-.group-serv::before {
-  content: "";
+.hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 20px;
-  border: 4px solid rgb(0, 100, 255);
-  opacity: 0;
-  transition: opacity 0.3s ease, border 0.6s ease;
-  z-index: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  z-index: 1;
 }
 
-/* On hover: Animate the border around the card */
-.group-serv:hover::before {
-  opacity: 1;
-  border: 4px solid rgb(0, 100, 255);
-  transition: border 0.6s ease, opacity 0.3s ease;
-}
-
-/* === Headings & Descriptions inside Cards === */
-.group-serv h2 {
-  color: rgb(0, 100, 255);
-  padding: 8px;
-  border-radius: 6px;
-  font-size: 1.5rem;
+.hero-content {
   position: relative;
-  overflow: visible; /* changed from hidden to prevent clipping of underline */
-  transition: transform 0.5s ease, color 0.4s ease;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 1200px;
+  color: var(--light-color);
 }
 
-/* Underline Animation From Center (independent from h2 movement) */
-.group-serv h2::after {
-  content: "";
+.page-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  color: var(--light-color);
+  position: relative;
+  display: inline-block;
+}
+
+.page-title::after {
+  content: '';
   position: absolute;
-  bottom: -4px; /* slightly below the text to avoid overlap during translation */
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  bottom: -15px;
   left: 50%;
-  width: 0;
-  height: 3px;
-  background-color: rgb(0, 100, 255);
-  transition: width 0.4s ease, left 0.4s ease;
+  transform: translateX(-50%);
   border-radius: 2px;
 }
 
-.group-serv:hover h2::after {
+.page-title .letter {
+  display: inline-block;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Intro Section */
+.services-intro {
+  padding: 5rem 0;
+  background-color: var(--light-color);
+}
+
+.services-intro h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+}
+
+.section-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  margin: 0 auto 2rem;
+  border-radius: 2px;
+}
+
+.services-intro p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Services Grid */
+.services-grid {
+  padding: 2rem 2rem;
+  background-color: #f8f9fa;
+}
+
+.container {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Card layout for 3-2 arrangement */
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.service-cards.second-row {
+  grid-template-columns: repeat(2, 1fr);
+  width: 66.66%;
+  margin: 0 auto;
+}
+
+.service-card {
+  position: relative;
+  background-color: var(--light-color);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-top: 5px solid var(--card-color, var(--primary-color));
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--card-color, var(--primary-color)), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
 }
 
-/* Only h2 text moves on hover */
-.group-serv:hover h2 {
+.service-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover::before {
+  opacity: 0.05;
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--card-color, var(--primary-color));
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.service-card h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--card-color, var(--dark-color));
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.service-card p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--card-color, var(--primary-color));
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.service-link:hover {
+  color: var(--card-color, var(--primary-color));
+  gap: 12px;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  padding: 5rem 0;
+  color: var(--light-color);
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--light-color);
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button:hover {
   transform: translateY(-5px);
-  color: rgb(0, 89, 255);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-color);
 }
 
-.group-serv p {
-  color: #000;
-  text-align: justify;
-  padding: 8px;
-  font-size: 0.95rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 6px;
+/* Responsive styles */
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* === Hover Effects === */
-.group-serv:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+.col-lg-8 {
+  width: 100%;
+  padding: 0 15px;
 }
 
-.group-serv:hover h2 {
-  transform: translateY(-5px);
-  color: rgb(0, 89, 255);
+.justify-content-center {
+  justify-content: center;
 }
 
-/* === Responsive Fix for Cards === */
+.text-center {
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .col-lg-8 {
+    width: 66.66667%;
+  }
+}
+
 @media (max-width: 992px) {
-  .group-serv {
-    flex: 1 1 calc(45% - 10px);
+  .services-hero {
+    height: 50vh;
+  }
+  
+  .service-cards,
+  .service-cards.second-row {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+  
+  .services-grid {
+    padding: 3rem 0;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-section p {
+    font-size: 1rem;
+  }
+  
+  .service-card {
+    padding: 2rem 1.5rem;
   }
 }
 
 @media (max-width: 576px) {
-  .group-serv {
-    flex: 1 1 100%;
+  .services-hero {
+    height: 10vh;
+    min-height: 200px;
+  }
+  
+  .page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .service-cards,
+  .service-cards.second-row {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
   }
 }

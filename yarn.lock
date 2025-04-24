@@ -876,6 +876,11 @@
   resolved "https://registry.npmjs.org/@types/animejs/-/animejs-3.1.13.tgz"
   integrity sha512-yWg9l1z7CAv/TKpty4/vupEh24jDGUZXv4r26StRkpUPQm04ztJaftgpto8vwdFs8SiTq6XfaPKCSI+wjzNMvQ==
 
+"@types/aos@^3.0.7":
+  version "3.0.7"
+  resolved "https://registry.npmjs.org/@types/aos/-/aos-3.0.7.tgz"
+  integrity sha512-sEhyFqvKauUJZDbvAB3Pggynrq6g+2PS4XB3tmUr+mDL1gfDJnwslUC4QQ7/l8UD+LWpr3RxZVR/rHoZrLqZVg==
+
 "@types/babel__core@^7.20.5":
   version "7.20.5"
   resolved "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.20.5.tgz"
