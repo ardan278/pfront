@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* Scroll Margin for Navigation Links */
 #products, #about {
   scroll-margin-top: 3rem;
@@ -274,48 +283,39 @@
 
 /* CTA Section */
 .cta-section {
-  background: linear-gradient(90deg, #ef4444, #f59e0b);
+  background: linear-gradient(135deg, #ff4e50, #f9d423); /* red to orange fade */
   color: white;
-  padding: 5rem 0;
+  padding: 60px 20px;
   text-align: center;
-}
-
-.cta-content {
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 .cta-content h2 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .cta-content p {
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 30px;
 }
 
 .cta-button {
-  background: white;
-  color: #ef4444;
-  border: none;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: 4px;
-  text-decoration: none;
   display: inline-block;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  color: #ff4e50;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .cta-button:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background-color: #ff4e50;
+  color: white;
 }
+
 
 /* Carousel Controls */
 .carousel-control-prev,

@@ -60,22 +60,21 @@ const HomeLogo: React.FC = () => {
     <div className="home-page">
       {/* Hero Section */}
       <section id="home">
-        <div className="hero-background">
-        </div>
+        <div className="hero-background"></div>
         <div className="content-overlay container">
           <h1 className="gradient-text">VTSTechCorp</h1>
           <div className="hero-buttons">
-            <HashLink smooth to="/services" className="home-logo-btn btn-primary">
+            <HashLink smooth to="/services" className="home-logo-btn btn btn-primary">
               Services
             </HashLink>
-            <HashLink smooth to="/forms" className="home-logo-btn btn-secondary">
+            <HashLink smooth to="/forms" className="home-logo-btn btn btn-secondary">
               Forms
             </HashLink>
           </div>
         </div>
       </section>
 
-      {/* Features */}
+      {/* Features Section */}
       <section className="features-section py-5">
         <Container>
           <h2 className="section-title">Why Choose Us</h2>
@@ -106,7 +105,7 @@ const HomeLogo: React.FC = () => {
         </Container>
       </section>
 
-      {/* Products */}
+      {/* Products Section */}
       <section id="products" className="products-section py-5">
         <Container>
           <h2 className="section-title">Our Products</h2>
@@ -118,12 +117,15 @@ const HomeLogo: React.FC = () => {
                   <div
                     className="product-image"
                     style={{ backgroundImage: `url(${product.image})` }}
+                    role="img"
                     aria-label={product.title}
                   />
                   <div className="product-details">
                     <h3>{product.title}</h3>
                     <p>{product.description}</p>
-                    <Button variant="outline-primary" className="product-btn">Learn More</Button>
+                    <Button variant="outline-primary" className="product-btn">
+                      Learn More
+                    </Button>
                   </div>
                 </div>
               </Col>
@@ -132,7 +134,7 @@ const HomeLogo: React.FC = () => {
         </Container>
       </section>
 
-      {/* About */}
+      {/* About Section */}
       <section id="about" className="about-section py-5">
         <Container>
           <h2 className="section-title">About Us</h2>
@@ -147,7 +149,12 @@ const HomeLogo: React.FC = () => {
           >
             {sections.map((section, idx) => (
               <Carousel.Item key={idx}>
-                <div className="carousel-slide" style={{ backgroundImage: `url(${section.image})` }}>
+                <div
+                  className="carousel-slide"
+                  style={{ backgroundImage: `url(${section.image})` }}
+                  role="img"
+                  aria-label={section.title}
+                >
                   <div className="carousel-overlay">
                     <h2>{section.title}</h2>
                     <p>{section.text}</p>
@@ -159,13 +166,15 @@ const HomeLogo: React.FC = () => {
         </Container>
       </section>
 
-      {/* Call to Action */}
+      {/* Call to Action Section */}
       <section className="cta-section">
         <Container>
           <div className="cta-content">
             <h2>Ready to elevate your building experience?</h2>
             <p>Contact our team today for a consultation on your vertical transportation needs.</p>
-            <HashLink smooth to="/contact" className="cta-button">Get in Touch</HashLink>
+            <HashLink smooth to="/contact" className="cta-button">
+              Get in Touch
+            </HashLink>
           </div>
         </Container>
       </section>
