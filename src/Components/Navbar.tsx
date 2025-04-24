@@ -67,7 +67,7 @@ const NavbarComponent: React.FC = () => {
             </div>
           </div>
           
-          <Navbar.Collapse id="navbar-nav" className="">
+          <Navbar.Collapse id="navbar-nav" className="justify-content-center align-items-center text-center">
             <Nav className="ms-auto">
               {navItems.map(({ to, label }) => (
                 <Nav.Link

@@ -75,7 +75,7 @@ const HomeLogo: React.FC = () => {
       </section>
 
       {/* Features Section */}
-      <section className="features-section py-5">
+      <section className="features-section py-5 mt-4">
         <Container>
           <h2 className="section-title">Why Choose Us</h2>
           <div className="section-divider mx-auto mb-4"></div>

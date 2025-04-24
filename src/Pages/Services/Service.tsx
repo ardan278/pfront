@@ -74,30 +74,11 @@ const ServicePage: React.FC = () => {
       </div>
 
       <div className="services-grid">
-        <div className="container">
+        <div className="container" style={{alignItems: 'center'}}>
           <div className="service-cards">
-            {groups.slice(0, 3).map((group, index) => (
+            {groups.map((group, index) => (
               <div 
                 key={index} 
-                className="service-card"
-                style={{'--card-color': group.color} as React.CSSProperties}
-              >
-                <div className="service-icon">
-                  {serviceIcons[group.title as keyof typeof serviceIcons]}
-                </div>
-                <h2>{group.title}</h2>
-                <p>{group.description}</p>
-                <Link to={group.link} className="service-link">
-                  Request Service <FaArrowRight />
-                </Link>
-              </div>
-            ))}
-          </div>
-          
-          <div className="service-cards second-row">
-            {groups.slice(3, 5).map((group, index) => (
-              <div 
-                key={index + 3} 
                 className="service-card"
                 style={{'--card-color': group.color} as React.CSSProperties}
               >

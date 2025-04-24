@@ -28,36 +28,14 @@ const Contact: React.FC = () => {
     }
   }, []);
 
-  // Trigger animation once anime is loaded
-  useEffect(() => {
-    if (animeLoaded) {
-      const anime = (window as any).anime;
-      anime({
-        targets: '.page-logo .letter',
-        opacity: [0, 1],
-        scale: [0.3, 1],
-        translateY: [20, 0],
-        easing: 'easeOutExpo',
-        duration: 800,
-        delay: anime.stagger(300),
-        loop: true,
-      });
-    }
-  }, [animeLoaded]);
-
   // Initialize AOS
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const text = 'Contact Us';
-  const letters = text.split('').map((letter, index) => (
-    <span key={index} className="letter" style={{ color: 'black', fontWeight: 'bold', fontSize: 'clamp(2.5rem, 5vw, 3rem)' }}>
-      {letter}
-    </span>
-  ));
   const [submitted, setSubmitted] = useState(false);
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const countryCode = formData.phone ? formData.phone.slice(0, 3) : ''; // Assuming the first 3 digits of the phone number are the country code
@@ -87,95 +65,98 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       setFormData((prev) => ({ ...prev, [name]: value }));
     };
   
-    const handlePhoneChange = (value: string | undefined) => {
-      setFormData((prev) => ({
-        ...prev,
-        phone: value || "",
-      }));
-    };
+  const handlePhoneChange = (value: string | undefined) => {
+    setFormData((prev) => ({
+      ...prev,
+      phone: value || "",
+    }));
+  };
 
   return (
-    <div className="form-card">
-      <h1 className="bg-light rounded page-logo" data-aos="fade-down" style={{boxShadow: '0 4px 16px rgb(0, 0, 0)'}}>{letters}</h1>
-      <div className="form-wrapper" data-aos="fade-up">
-        <div className="contact-card">
-          <form onSubmit={handleSubmit} className="contact-form">
-
-            {/* Name input */}
-            <div className="mb-3">
-              <label htmlFor="name" className="form-label required">Name</label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                name="name"
-                placeholder="Enter your name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            {/* Email input */}
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label required">Email</label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                name="email"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            {/* Phone number input */}
-            <div className="mb-3">
-              <label htmlFor="phone" className="form-label required">Phone Number</label>
-              <PhoneInput
-                international
-                defaultCountry="IN"
-                value={formData.phone}
-                onChange={handlePhoneChange}
-                className="form-control-phone"
-                placeholder="Enter phone number"
-                required
-              />
-            </div>
-
-            {/* Query input */}
-            <div className="mb-3">
-              <label htmlFor="query" className="form-label required">Your Query</label>
-              <textarea
-                className="form-control"
-                id="query"
-                name="query"
-                rows={3}
-                placeholder="Enter your query"
-                value={formData.query}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            {/* Submit button */}
-            <button
-              type="submit"
-              className="btn btn-secondary w-100 fancy-button"
-            >
-              Submit
-            </button>
-
-            {/* Success message */}
-            {submitted && (
-              <div className="success-message">
-                Email sent successfully!
-              </div>
-            )}
-          </form>
+    <div className="contact-page">
+      <div className="contact-hero">
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <h1 className="page-title">Contact Us</h1>
         </div>
+      </div>
+
+      <div className="contact-grid">
+        <form onSubmit={handleSubmit} className="contact-form" data-aos="fade-up">
+          {/* Name input */}
+          <div className="mb-3">
+            <label htmlFor="name" className="form-label required">Name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          {/* Email input */}
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label required">Email</label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          {/* Phone number input */}
+          <div className="mb-3">
+            <label htmlFor="phone" className="form-label required">Phone Number</label>
+            <PhoneInput
+              international
+              defaultCountry="IN"
+              value={formData.phone}
+              onChange={handlePhoneChange}
+              className="form-control-phone"
+              placeholder="Enter phone number"
+              required
+            />
+          </div>
+
+          {/* Query input */}
+          <div className="mb-3">
+            <label htmlFor="query" className="form-label required">Your Query</label>
+            <textarea
+              className="form-control"
+              id="query"
+              name="query"
+              rows={3}
+              placeholder="Enter your query"
+              value={formData.query}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          {/* Submit button */}
+          <button
+            type="submit"
+            className="btn btn-primary w-100 fancy-button"
+          >
+            Submit
+          </button>
+
+          {/* Success message */}
+          {submitted && (
+            <div className="success-message">
+              Email sent successfully!
+            </div>
+          )}
+        </form>
       </div>
     </div>
   );

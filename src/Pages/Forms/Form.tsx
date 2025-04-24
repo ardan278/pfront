@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Form.css';
 import { Link } from 'react-router-dom';
+import { FaArrowRight, FaUserPlus, FaWrench, FaHandshake, FaBoxOpen } from 'react-icons/fa';
 import AOS from 'aos';
 
 const FormPage: React.FC = () => {
@@ -41,57 +42,74 @@ const FormPage: React.FC = () => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const text = 'Forms';
-  const letters = text.split('').map((letter, index) => (
-    <span key={index} className="letter" style={{ color: 'black', fontWeight: 'bold', fontSize: 'clamp(2.5rem, 5vw, 3rem)' }}>
-      {letter}
-    </span>
-  ));
+  const formIcons = {
+    'Registration Form': <FaUserPlus />,
+    'Installation Form': <FaWrench />,
+    'Service Form': <FaHandshake />,
+    'Part Request Form': <FaBoxOpen />
+  };
 
-  const groups = [
+  const forms = [
     {
       title: 'Registration Form',
       description:
         'Order complete spares of any elevator brand here. If you have your own service company maintaining / servicing other brand elevators, we can be your reliable partners.',
       link: '/registrationform',
+      color: '#4361ee'
     },
     {
       title: 'Installation Form',
       description:
         'VTSTech Corp can help find best fit VT equipment based on usage and type of building. We offer both standard and custom lift car designs, utilizing a variety of materials chosen by you for new elevator installations.',
       link: '/installationform',
+      color: '#ef4444'
     },
     {
       title: 'Service Form',
       description:
         'VTSTech Corp can help find great after-sales comprehensive service package that suits YOUR budget.',
       link: '/serviceform',
+      color: '#f59e0b'
     },
     {
       title: 'Part Request Form',
       description:
         "Let's replace what is REQUIRED!! VTSTech Corp will provide you with qualified vendors and service providers near to your place. We also specialize in creating new car designs for existing lifts as part of modernization projects, ensuring top-notch workmanship throughout the process.",
       link: '/partrequestform',
-    },
+      color: '#10b981'
+    }
   ];
 
   return (
-    <div className="form-card">
-      <h1 className="bg-light rounded page-logo" data-aos="fade-down" style={{boxShadow: '0 4px 16px rgb(0, 0, 0)'}}>{letters}</h1>
-      <div className="grp-form" data-aos="fade-up">
-        {groups.map((group, index) =>
-          group.link ? (
-            <Link key={index} to={group.link} className="group-form">
-              <h2 className="form-head rounded">{group.title}</h2>
-              {/* <p className="card-body rounded my-2">{group.description}</p> */}
-            </Link>
-          ) : (
-            <div key={index} className="group-cont">
-              <h2 className="">{group.title}</h2>
-              {/* <p className="card-body rounded my-2">{group.description}</p> */}
-            </div>
-          )
-        )}
+    <div className="forms-page">
+      <div className="forms-hero">
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <h1 className="page-title">Forms</h1>
+        </div>
+      </div>
+
+      <div className="forms-grid">
+        <div className="container">
+          <div className="form-cards">
+            {forms.map((form, index) => (
+              <div 
+                key={index} 
+                className="form-card-item"
+                style={{'--card-color': form.color} as React.CSSProperties}
+              >
+                <div className="form-icon">
+                  {formIcons[form.title as keyof typeof formIcons]}
+                </div>
+                <h2>{form.title}</h2>
+                <p>{form.description}</p>
+                <Link to={form.link} className="form-link">
+                  Go to Form <FaArrowRight />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

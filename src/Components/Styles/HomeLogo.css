@@ -282,25 +282,35 @@ html, body {
 }
 
 /* CTA Section */
-.cta-section {
-  background: linear-gradient(135deg, #ff4e50, #f9d423); /* red to orange fade */
-  color: white;
+.home-page .cta-section {
+  background: linear-gradient(135deg, #ff0000, #ff8000) !important; /* stronger red to orange gradient */
+  color: white !important;
   padding: 60px 20px;
   text-align: center;
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
 }
 
-.cta-content h2 {
+.home-page .cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-page .cta-content h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
   font-weight: 700;
+  color: white !important;
 }
 
-.cta-content p {
+.home-page .cta-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
+  color: white !important;
 }
 
-.cta-button {
+.home-page .cta-button {
   display: inline-block;
   background-color: white;
   color: #ff4e50;
@@ -311,11 +321,10 @@ html, body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.cta-button:hover {
+.home-page .cta-button:hover {
   background-color: #ff4e50;
   color: white;
 }
-
 
 /* Carousel Controls */
 .carousel-control-prev,

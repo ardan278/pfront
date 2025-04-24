@@ -140,3 +140,232 @@
     flex: 1 1 100%;
   }
 }
+
+/* Forms Page Base Styles */
+.forms-page {
+  width: 100%;
+  overflow-x: hidden;
+  --primary-color: #ef4444;
+  --secondary-color: #f59e0b;
+  --dark-color: #333;
+  --light-color: #fff;
+  color: var(--dark-color);
+}
+
+/* Hero Section */
+.forms-hero {
+  position: relative;
+  height: 30vh;
+  min-height: 30px;
+  /* background-image: url('https://images.unsplash.com/photo-1603431319302-8872bfcb7898?q=80&auto=format&fit=crop'); */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -70px; /* Adjust based on navbar height */
+  padding-top: 70px;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  max-width: 1200px;
+  color: var(--light-color);
+}
+
+.page-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  color: var(--light-color);
+  position: relative;
+  display: inline-block;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.page-title .letter {
+  display: inline-block;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Forms Grid */
+.forms-grid {
+  padding: 2rem 2rem;
+  background-color: #f8f9fa;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Card layout for 2-2 arrangement */
+.form-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.form-cards.second-row {
+  margin-top: 30px;
+}
+
+.form-card-item {
+  position: relative;
+  background-color: var(--light-color);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-top: 5px solid var(--card-color, var(--primary-color));
+  overflow: hidden;
+}
+
+.form-card-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--card-color, var(--primary-color)), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.form-card-item:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-card-item:hover::before {
+  opacity: 0.05;
+}
+
+.form-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--card-color, var(--primary-color));
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.form-card-item:hover .form-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.form-card-item h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--card-color, var(--dark-color));
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.form-card-item p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.form-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--card-color, var(--primary-color));
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.form-link:hover {
+  color: var(--card-color, var(--primary-color));
+  gap: 12px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .forms-hero {
+    height: 25vh;
+  }
+
+  .form-cards,
+  .form-cards.second-row {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .forms-grid {
+    padding: 3rem 0;;
+  }
+
+  .form-card-item {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .forms-hero {
+    height: 10vh;
+    min-height: 200px;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .form-link {
+    font-size: 0.8rem;
+  }
+}

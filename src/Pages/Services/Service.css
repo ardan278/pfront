@@ -14,7 +14,7 @@
   position: relative;
   height: 30vh;
   min-height: 30px;
-  background-image: url('https://images.unsplash.com/photo-1603431319302-8872bfcb7898?q=80&auto=format&fit=crop');
+  /* background-image: url('https://images.unsplash.com/photo-1603431319302-8872bfcb7898?q=80&auto=format&fit=crop'); */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -121,18 +121,13 @@
   padding: 0 15px;
 }
 
-/* Card layout for 3-2 arrangement */
+/* Card layout for 3 cards per row arrangement */
 .service-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  margin-bottom: 30px;
-}
-
-.service-cards.second-row {
-  grid-template-columns: repeat(2, 1fr);
-  width: 66.66%;
   margin: 0 auto;
+  width: 100%;
 }
 
 .service-card {
@@ -224,50 +219,6 @@
   gap: 12px;
 }
 
-/* CTA Section */
-.cta-section {
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  padding: 5rem 0;
-  color: var(--light-color);
-  text-align: center;
-}
-
-.cta-section h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-.cta-section p {
-  font-size: 1.2rem;
-  margin-bottom: 2.5rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  background: var(--light-color);
-  color: var(--primary-color);
-  font-weight: 700;
-  font-size: 1.1rem;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.cta-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--primary-color);
-}
-
 /* Responsive styles */
 .row {
   display: flex;
@@ -295,13 +246,11 @@
 
 @media (max-width: 992px) {
   .services-hero {
-    height: 50vh;
+    height: 25vh;
   }
   
-  .service-cards,
-  .service-cards.second-row {
+  .service-cards {
     grid-template-columns: repeat(2, 1fr);
-    width: 100%;
   }
 }
 
@@ -312,14 +261,6 @@
   
   .services-grid {
     padding: 3rem 0;
-  }
-  
-  .cta-section h2 {
-    font-size: 2rem;
-  }
-  
-  .cta-section p {
-    font-size: 1rem;
   }
   
   .service-card {
@@ -337,18 +278,11 @@
     font-size: clamp(2rem, 4vw, 3rem);
   }
   
-  .hero-subtitle {
+  /* .hero-subtitle {
     font-size: 1rem;
-  }
+  } */
   
-  .service-cards,
-  .service-cards.second-row {
+  .service-cards {
     grid-template-columns: 1fr;
-    width: 100%;
-  }
-  
-  .cta-button {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
   }
 }
