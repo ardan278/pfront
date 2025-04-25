@@ -249,7 +249,7 @@ html, body {
 }
 
 .carousel-slide {
-  height: 400px;
+  height: 600px;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -380,7 +380,7 @@ html, body {
   }
 
   .hero-buttons {
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
   }
 
