@@ -77,7 +77,7 @@ const Contact: React.FC = () => {
       <div className="contact-hero">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h1 className="page-title" style={{fontSize: '3rem'}}>Contact Us</h1>
+          <div className="page-title" style={{fontSize: '3rem'}}>Contact Us</div>
         </div>
       </div>
 

@@ -78,23 +78,44 @@ const HomeLogo: React.FC = () => {
     // Camera setup - perspective camera for 3D effect
     const camera = new THREE.PerspectiveCamera(
       75, 
-      canvasRef.current.width / canvasRef.current.height, 
+      window.innerWidth / window.innerHeight, 
       0.1, 
       1000
     );
-    camera.position.z = 50;
+    camera.position.z = 20;
     
-    // Renderer setup
+    // Renderer setup with responsive sizing
     const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
       alpha: true,
       antialias: true
     });
-    renderer.setSize(canvasRef.current.clientWidth, canvasRef.current.clientHeight);
+    
+    const handleResize = () => {
+      if (!canvasRef.current || !canvasRef.current.parentElement) return;
+      
+      // Get dimensions from parent container
+      const parent = canvasRef.current.parentElement;
+      const width = parent.clientWidth;
+      const height = parent.clientHeight;
+      
+      // Update camera aspect ratio
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      
+      // Update renderer size to match parent container
+      renderer.setSize(width, height, false); // false to prevent overriding canvas inline styles
+    };
+    
+    // Initial sizing
+    handleResize();
+    
+    // Add resize event listener
+    window.addEventListener('resize', handleResize);
     
     // Create grid of stars/particles
     const starGeometry = new THREE.BufferGeometry();
-    const starCount = 1000;
+    const starCount = 600; // Reduced count for better performance on mobile
     
     const positions = new Float32Array(starCount * 3);
     const colors = new Float32Array(starCount * 3);
@@ -111,10 +132,10 @@ const HomeLogo: React.FC = () => {
     for (let i = 0; i < starCount; i++) {
       const i3 = i * 3;
       
-      // Position in a 3D space
-      positions[i3] = (Math.random() - 0.5) * 50;   // x
-      positions[i3 + 1] = (Math.random() - 0.5) * 50; // y
-      positions[i3 + 2] = (Math.random() - 0.5) * 50; // z
+      // Position in a 3D space - reduced spread for mobile
+      positions[i3] = (Math.random() - 0.5) * 40;   // x
+      positions[i3 + 1] = (Math.random() - 0.5) * 40; // y
+      positions[i3 + 2] = (Math.random() - 0.5) * 40; // z
       
       // Random color from our palette
       const color = colorOptions[Math.floor(Math.random() * colorOptions.length)];
@@ -151,21 +172,6 @@ const HomeLogo: React.FC = () => {
     // Start animation
     animate();
     
-    // Handle resize
-    const handleResize = () => {
-      if (!canvasRef.current) return;
-      
-      const width = canvasRef.current.clientWidth;
-      const height = canvasRef.current.clientHeight;
-      
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      
-      renderer.setSize(width, height);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -190,15 +196,15 @@ const HomeLogo: React.FC = () => {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
-      <section id="home" className="mb-5">
+      {/* Hero Section with well-contained animation */}
+      <section id="home" className="hero-section">
         <div className="hero-background">
           <canvas ref={canvasRef} className="hero-canvas"></canvas>
         </div>
         <div className="content-overlay container">
           <h1 className="gradient-text">VTSTechCorp</h1>
           <div className="hero-buttons">
-            <Link to="/services" className="home-logo-btn btn btn-primary">
+            <Link to="/services" className="home-logo-btn btn btn-primary me-2">
               Services
             </Link>
             <Link to="/forms" className="home-logo-btn btn btn-secondary">
