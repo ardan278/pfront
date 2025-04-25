@@ -28,7 +28,7 @@ const EventCalendar: React.FC = () => {
       <div className="calendar-hero">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <div className="page-title" style={{fontSize: '3rem'}}>Event Calendar</div>
+          <div className="page-title">Event Calendar</div>
         </div>
       </div>
 

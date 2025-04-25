@@ -167,6 +167,7 @@
   justify-content: center;
   margin-top: -70px; /* Adjust based on navbar height */
   padding-top: 70px;
+  overflow: hidden;
 }
 
 .hero-overlay {
@@ -376,13 +377,4 @@
   .page-title {
     font-size: 2.5rem;
   }
-}
-
-/* Additional selector to ensure it gets applied */
-.hero-content h1 {
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  color: var(--light-color);
 }
