@@ -82,7 +82,7 @@ const HomeLogo: React.FC = () => {
       0.1, 
       1000
     );
-    camera.position.z = 50;
+    camera.position.z = 20;
     
     // Renderer setup
     const renderer = new THREE.WebGLRenderer({
