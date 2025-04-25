@@ -2,9 +2,15 @@ import React, { useEffect, useState } from 'react';
 import './Service.css';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaTools, FaCogs, FaExchangeAlt, FaBoxOpen, FaBuilding } from 'react-icons/fa';
+import aos from 'aos';
+import 'aos/dist/aos.css';
 
 const ServicePage: React.FC = () => {
   const [animeLoaded, setAnimeLoaded] = useState(false);
+
+  useEffect(() => {
+    aos.init({ duration: 1000 });
+  }, []);
 
   useEffect(() => {
     if (!(window as any).anime) {
@@ -69,13 +75,13 @@ const ServicePage: React.FC = () => {
       <div className="services-hero">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h1 className="page-title">Services</h1>
+          <div className="page-ti">Services</div>
         </div>
       </div>
 
-      <div className="services-grid">
-        <div className="container" style={{alignItems: 'center'}}>
-          <div className="service-cards">
+      <div className="services-grid" >
+        <div className="container" style={{alignItems: 'center'}} >
+          <div className="service-cards"data-aos="fade-up">
             {groups.map((group, index) => (
               <div 
                 key={index} 

@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react';
 import './Form.css';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaUserPlus, FaWrench, FaHandshake, FaBoxOpen } from 'react-icons/fa';
-import AOS from 'aos';
+import aos from 'aos';
+import 'aos/dist/aos.css';
 
 const FormPage: React.FC = () => {
   const [animeLoaded, setAnimeLoaded] = useState(false);
+
+  useEffect(() => {
+      aos.init({ duration: 1000 });
+    }, []);
 
   // Load Anime.js dynamically
   useEffect(() => {
@@ -39,7 +44,7 @@ const FormPage: React.FC = () => {
 
   // Initialize AOS
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    aos.init({ duration: 1000 });
   }, []);
 
   const formIcons = {
@@ -91,7 +96,7 @@ const FormPage: React.FC = () => {
 
       <div className="forms-grid">
         <div className="container">
-          <div className="form-cards">
+          <div className="form-cards" data-aos="fade-up">
             {forms.map((form, index) => (
               <div 
                 key={index} 

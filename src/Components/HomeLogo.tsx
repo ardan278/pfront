@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Carousel, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Styles/HomeLogo.css';
 import Elevator from "../assets/images/Elevator.jpeg";
 import Blog2 from "../assets/images/peopleHandOver.jpg";
@@ -7,8 +8,9 @@ import Escalator from "../assets/images/Escalator.jpg";
 import Blog1 from "../assets/images/1523699544907.png";
 import Blog3 from "../assets/images/b3_part.jpg";
 import MoveWalks from "../assets/images/MoveWalks.jpg";
-import { HashLink } from 'react-router-hash-link';
 import { FaChartLine, FaCogs, FaShieldAlt } from 'react-icons/fa';
+import aos from 'aos';
+import 'aos/dist/aos.css';
 
 const sections = [
   {
@@ -56,6 +58,10 @@ const HomeLogo: React.FC = () => {
     setIndex(selectedIndex);
   };
 
+  useEffect(() => {
+    aos.init({ duration: 1000 });
+  }, []);
+
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -64,12 +70,12 @@ const HomeLogo: React.FC = () => {
         <div className="content-overlay container">
           <h1 className="gradient-text">VTSTechCorp</h1>
           <div className="hero-buttons">
-            <HashLink smooth to="/services" className="home-logo-btn btn btn-primary">
+            <Link to="/services" className="home-logo-btn btn btn-primary">
               Services
-            </HashLink>
-            <HashLink smooth to="/forms" className="home-logo-btn btn btn-secondary">
+            </Link>
+            <Link to="/forms" className="home-logo-btn btn btn-secondary">
               Forms
-            </HashLink>
+            </Link>
           </div>
         </div>
       </section>
@@ -81,21 +87,21 @@ const HomeLogo: React.FC = () => {
           <div className="section-divider mx-auto mb-4"></div>
           <Row className="text-center">
             <Col md={4}>
-              <div className="feature-card">
+              <div className="feature-card" data-aos="zoom-in">
                 <FaChartLine className="feature-icon" />
                 <h3>Industry Experience</h3>
                 <p>Over 20 years of experience in providing vertical transportation solutions.</p>
               </div>
             </Col>
             <Col md={4}>
-              <div className="feature-card">
+              <div className="feature-card" data-aos="zoom-in" data-aos-delay="100">
                 <FaCogs className="feature-icon" />
                 <h3>Quality Service</h3>
                 <p>Committed to delivering exceptional service and maintenance support.</p>
               </div>
             </Col>
             <Col md={4}>
-              <div className="feature-card">
+              <div className="feature-card" data-aos="zoom-in" data-aos-delay="200">
                 <FaShieldAlt className="feature-icon" />
                 <h3>Safety First</h3>
                 <p>Adhering to the highest safety standards and regulations in the industry.</p>
@@ -113,17 +119,20 @@ const HomeLogo: React.FC = () => {
           <Row>
             {featuredProducts.map(product => (
               <Col lg={4} md={6} key={product.id} className="mb-4">
-                <div className="product-card">
+                <div className="product-card" data-aos="fade-up">
                   <div
                     className="product-image"
-                    style={{ backgroundImage: `url(${product.image})` }}
+                    style={{
+                      backgroundImage: `url(${product.image})`,
+                      backgroundColor: '#eee'
+                    }}
                     role="img"
                     aria-label={product.title}
                   />
                   <div className="product-details">
                     <h3>{product.title}</h3>
                     <p>{product.description}</p>
-                    <Button variant="outline-primary" className="product-btn">
+                    <Button variant="outline-primary" className="product-btn" onClick={() => alert('More info coming soon!')}>
                       Learn More
                     </Button>
                   </div>
@@ -172,9 +181,9 @@ const HomeLogo: React.FC = () => {
           <div className="cta-content">
             <h2>Ready to elevate your building experience?</h2>
             <p>Contact our team today for a consultation on your vertical transportation needs.</p>
-            <HashLink smooth to="/contact" className="cta-button">
+            <Link to="/contact" className="cta-button">
               Get in Touch
-            </HashLink>
+            </Link>
           </div>
         </Container>
       </section>

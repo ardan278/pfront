@@ -150,6 +150,7 @@
   --dark-color: #333;
   --light-color: #fff;
   color: var(--dark-color);
+  overlay: hidden;
 }
 
 /* Hero Section */
