@@ -6,6 +6,10 @@ import ServicePage from "./Pages/Services/Service.tsx";
 import SparePartForm from "./Pages/Services/SpareParts/SparePartForm";
 import FormsPage from "./Pages/Forms/Form"; // Ensure FormsPage is correctly imported
 import EventCalendar from "./Pages/EventCalendar/EventCalendar.tsx";
+import RegForm from "./Pages/Forms/Reg_form";
+import InstForm from "./Pages/Forms/Inst_form";
+import ServForm from "./Pages/Forms/Serv_form";
+import PartReqForm from "./Pages/Forms/Part_req_form";
 
 const App: React.FC = () => {
   return (
@@ -16,6 +20,10 @@ const App: React.FC = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/sparepartform" element={<SparePartForm />} />
       <Route path="/event-calendar" element={<EventCalendar />} />
+      <Route path="/registrationform" element={<RegForm />} />
+      <Route path="/installationform" element={<InstForm />} />
+      <Route path="/serviceform" element={<ServForm />} />
+      <Route path="/partrequestform" element={<PartReqForm />} />
     </Routes>
   );
 };

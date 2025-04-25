@@ -39,7 +39,17 @@ const NavbarComponent: React.FC = () => {
   ];
 
   // Check if current page is Services or Forms page
-  const isLightThemePage = ["/services", "/forms","/contact","/event-calendar"].includes(location.pathname);
+  const isLightThemePage = [
+    "/services", 
+    "/forms",
+    "/contact",
+    "/event-calendar",
+    "/registrationform",
+    "/installationform",
+    "/serviceform",
+    "/partrequestform",
+    "/sparepartform"
+  ].includes(location.pathname);
 
   return (
     <>
