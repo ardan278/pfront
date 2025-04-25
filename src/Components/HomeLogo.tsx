@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col, Carousel, Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Styles/HomeLogo.css';
@@ -11,6 +11,9 @@ import MoveWalks from "../assets/images/MoveWalks.jpg";
 import { FaChartLine, FaCogs, FaShieldAlt } from 'react-icons/fa';
 import aos from 'aos';
 import 'aos/dist/aos.css';
+
+// Import three.js for the background animation
+import * as THREE from 'three';
 
 const sections = [
   {
@@ -55,6 +58,7 @@ const HomeLogo: React.FC = () => {
   const [index, setIndex] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState(featuredProducts);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const handleSelect = (selectedIndex: number) => {
     setIndex(selectedIndex);
@@ -62,6 +66,118 @@ const HomeLogo: React.FC = () => {
 
   useEffect(() => {
     aos.init({ duration: 1000 });
+  }, []);
+
+  // 3D Animation for hero background
+  useEffect(() => {
+    if (!canvasRef.current) return;
+
+    // Scene setup
+    const scene = new THREE.Scene();
+    
+    // Camera setup - perspective camera for 3D effect
+    const camera = new THREE.PerspectiveCamera(
+      75, 
+      canvasRef.current.width / canvasRef.current.height, 
+      0.1, 
+      1000
+    );
+    camera.position.z = 50;
+    
+    // Renderer setup
+    const renderer = new THREE.WebGLRenderer({
+      canvas: canvasRef.current,
+      alpha: true,
+      antialias: true
+    });
+    renderer.setSize(canvasRef.current.clientWidth, canvasRef.current.clientHeight);
+    
+    // Create grid of stars/particles
+    const starGeometry = new THREE.BufferGeometry();
+    const starCount = 1000;
+    
+    const positions = new Float32Array(starCount * 3);
+    const colors = new Float32Array(starCount * 3);
+    
+    // Blue-purple color palette
+    const colorOptions = [
+      new THREE.Color(0x00b7ff), // Bright blue
+      new THREE.Color(0x0077ff), // Medium blue
+      new THREE.Color(0xff00bf), // Bright pink/magenta
+      new THREE.Color(0xcc00ff)  // Purple
+    ];
+    
+    // Create star positions and colors
+    for (let i = 0; i < starCount; i++) {
+      const i3 = i * 3;
+      
+      // Position in a 3D space
+      positions[i3] = (Math.random() - 0.5) * 50;   // x
+      positions[i3 + 1] = (Math.random() - 0.5) * 50; // y
+      positions[i3 + 2] = (Math.random() - 0.5) * 50; // z
+      
+      // Random color from our palette
+      const color = colorOptions[Math.floor(Math.random() * colorOptions.length)];
+      color.toArray(colors, i3);
+    }
+    
+    starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    starGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    
+    // Material for the stars with vertex colors
+    const starMaterial = new THREE.PointsMaterial({
+      size: 0.15,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.8
+    });
+    
+    // Create the star system
+    const stars = new THREE.Points(starGeometry, starMaterial);
+    scene.add(stars);
+    
+    // Animation loop
+    const animate = () => {
+      requestAnimationFrame(animate);
+      
+      // Rotate the star field slowly
+      stars.rotation.y += 0.0005;
+      stars.rotation.x += 0.0002;
+      
+      // Render the scene
+      renderer.render(scene, camera);
+    };
+    
+    // Start animation
+    animate();
+    
+    // Handle resize
+    const handleResize = () => {
+      if (!canvasRef.current) return;
+      
+      const width = canvasRef.current.clientWidth;
+      const height = canvasRef.current.clientHeight;
+      
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      
+      renderer.setSize(width, height);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      
+      if (stars) {
+        scene.remove(stars);
+        starGeometry.dispose();
+        starMaterial.dispose();
+      }
+      
+      renderer.dispose();
+    };
   }, []);
 
   useEffect(() => {
@@ -76,7 +192,9 @@ const HomeLogo: React.FC = () => {
     <div className="home-page">
       {/* Hero Section */}
       <section id="home" className="mb-5">
-        <div className="hero-background"></div>
+        <div className="hero-background">
+          <canvas ref={canvasRef} className="hero-canvas"></canvas>
+        </div>
         <div className="content-overlay container">
           <h1 className="gradient-text">VTSTechCorp</h1>
           <div className="hero-buttons">

@@ -13,8 +13,11 @@
     "@headlessui/react": "^2.2.2",
     "@mui/material": "^7.0.2",
     "@react-input/mask": "^2.0.4",
+    "@react-three/drei": "^10.0.7",
+    "@react-three/fiber": "^9.1.2",
     "@types/animejs": "^3.1.13",
     "@types/react-icons": "^2.2.7",
+    "@types/three": "^0.176.0",
     "anime": "^0.1.2",
     "animejs": "^4.0.1",
     "aos": "^2.3.4",
@@ -37,7 +40,8 @@
     "react-router-dom": "^7.5.0",
     "react-router-hash-link": "^2.4.3",
     "react-scroll": "^1.9.3",
-    "tailwind": "^4.0.0"
+    "tailwind": "^4.0.0",
+    "three": "^0.176.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
