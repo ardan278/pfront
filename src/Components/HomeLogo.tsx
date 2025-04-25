@@ -65,7 +65,7 @@ const HomeLogo: React.FC = () => {
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <section id="home">
+      <section id="home" className="mb-5">
         <div className="hero-background"></div>
         <div className="content-overlay container">
           <h1 className="gradient-text">VTSTechCorp</h1>
@@ -81,7 +81,7 @@ const HomeLogo: React.FC = () => {
       </section>
 
       {/* Features Section */}
-      <section className="features-section py-5 mt-4">
+      <section className="features-section py-5 mt-5">
         <Container>
           <h2 className="section-title">Why Choose Us</h2>
           <div className="section-divider mx-auto mb-4"></div>
