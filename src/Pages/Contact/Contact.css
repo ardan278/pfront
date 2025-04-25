@@ -284,3 +284,21 @@
 .form-wrapper {
   display: none;
 }
+
+/* Laptop view title size */
+@media (min-width: 992px) and (max-width: 1366px) {
+  .page-title, 
+  .hero-content h1, 
+  h1.page-title {
+    font-size: 2rem !important;
+  }
+}
+
+/* Additional selector to ensure it gets applied */
+.hero-content h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  color: var(--light-color);
+}

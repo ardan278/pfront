@@ -45,7 +45,7 @@
 }
 
 .page-title {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(3rem, 6vw, 3rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
@@ -284,5 +284,12 @@
   
   .service-cards {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Laptop view title size */
+@media (min-width: 992px) and (max-width: 1366px) {
+  .page-title {
+    font-size: 2.5rem;
   }
 }
