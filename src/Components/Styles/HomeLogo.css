@@ -421,3 +421,22 @@ html, body {
     font-size: 2rem;
   }
 }
+
+/* Search bar styling */
+.search-container {
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+.product-search {
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ced4da;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.product-search:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  border-color: #80bdff;
+}

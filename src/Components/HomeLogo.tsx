@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Carousel, Button } from 'react-bootstrap';
+import { Container, Row, Col, Carousel, Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Styles/HomeLogo.css';
 import Elevator from "../assets/images/Elevator.jpeg";
@@ -53,6 +53,8 @@ const featuredProducts = [
 
 const HomeLogo: React.FC = () => {
   const [index, setIndex] = useState(0);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState(featuredProducts);
 
   const handleSelect = (selectedIndex: number) => {
     setIndex(selectedIndex);
@@ -61,6 +63,14 @@ const HomeLogo: React.FC = () => {
   useEffect(() => {
     aos.init({ duration: 1000 });
   }, []);
+
+  useEffect(() => {
+    const results = featuredProducts.filter(product =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(results);
+  }, [searchTerm]);
 
   return (
     <div className="home-page">
@@ -116,8 +126,19 @@ const HomeLogo: React.FC = () => {
         <Container>
           <h2 className="section-title">Our Products</h2>
           <div className="section-divider mx-auto mb-4"></div>
+          <div className="search-container mb-4">
+            <Form.Group>
+              <Form.Control
+                type="text"
+                placeholder="Search products..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="product-search"
+              />
+            </Form.Group>
+          </div>
           <Row>
-            {featuredProducts.map(product => (
+            {filteredProducts.map(product => (
               <Col lg={4} md={6} key={product.id} className="mb-4">
                 <div className="product-card" data-aos="fade-up">
                   <div
@@ -139,6 +160,11 @@ const HomeLogo: React.FC = () => {
                 </div>
               </Col>
             ))}
+            {filteredProducts.length === 0 && (
+              <Col xs={12} className="text-center">
+                <p>No products found matching your search.</p>
+              </Col>
+            )}
           </Row>
         </Container>
       </section>
