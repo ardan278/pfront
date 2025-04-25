@@ -44,7 +44,7 @@ const ServicePage: React.FC = () => {
       title: 'New Sales',
       description:
         'VTSTech Corp can help find best fit VT equipment based on usage and type of building. We offer both standard and custom lift car designs, utilizing a variety of materials chosen by you for new elevator installations.',
-      link: '/newsales',
+      link: '/installationfromservices',
       color: '#ef4444'
     },
     {
