@@ -151,6 +151,7 @@
   --light-color: #fff;
   color: var(--dark-color);
   overlay: hidden;
+  overflow: hidden;
 }
 
 /* Hero Section */
@@ -166,7 +167,6 @@
   justify-content: center;
   margin-top: -70px; /* Adjust based on navbar height */
   padding-top: 70px;
-  overflow: hidden;
 }
 
 .hero-overlay {

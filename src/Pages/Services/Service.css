@@ -61,7 +61,7 @@
   width: 80px;
   height: 4px;
   background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  bottom: -15px;
+  bottom: -7.5px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 2px;
