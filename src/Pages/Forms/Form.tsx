@@ -90,7 +90,7 @@ const FormPage: React.FC = () => {
       <div className="forms-hero">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h1 className="page-title" style={{fontSize: '3rem'}}>Forms</h1>
+          <div className="page-title" style={{fontSize: '3rem'}}>Forms</div>
         </div>
       </div>
 

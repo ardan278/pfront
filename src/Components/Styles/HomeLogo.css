@@ -8,6 +8,16 @@ html, body {
   background-color: black;
 }
 
+.hero-section {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -3rem;
+  margin-top: -3rem;
+}
+
 /* Scroll Margin for Navigation Links */
 #products, #about {
   scroll-margin-top: 3rem;
@@ -51,9 +61,10 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 40%;
+  height: 100%;
   z-index: 0;
   background-color: black;
+  overflow: hidden;
 }
 
 .hero-image {
@@ -76,7 +87,7 @@ html, body {
 }
 
 .hero-canvas {
-  position: absolute;
+  position: absolute; /* Changed from relative to absolute */
   top: 0;
   left: 0;
   width: 100%;
@@ -102,17 +113,17 @@ html, body {
   font-size: clamp(3rem, 10vw, 6rem);
   font-weight: 900;
   font-family: 'Courier New', Courier, monospace;
-  margin-top: 1rem;
+  margin-top: 4rem;
   margin-bottom: 1rem;
 }
 
 /* Hero Subtitle */
 .hero-subtitle {
-  font-size: 1.5rem;
-  margin: 0 auto 2rem;
   color: white;
-  max-width: 600px;
-  font-weight: 300;
+  margin: 1rem auto;
+  font-size: 1.2rem;
+  max-width: 80%;
+  text-align: center;
 }
 
 /* Hero Buttons */
@@ -121,7 +132,6 @@ html, body {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 2rem;
-  /* flex-wrap: wrap; */
 }
 
 .home-logo-btn {
@@ -134,8 +144,6 @@ html, body {
   letter-spacing: 1px;
   text-decoration: none;
   transition: all 0.3s ease;
-  /* display: inline-block; */
-  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
 }
 
 .btn-primary {
@@ -393,12 +401,16 @@ html, body {
     padding: 3rem 0;
   }
 
-  .gradient-text {
-    /* font-size: clamp(2.5rem, 8vw, 4rem); */
+  .hero-section {
+    min-height: 250px;
   }
-
+  
+  .gradient-text {
+    font-size: 2.5rem;
+  }
+  
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .hero-buttons {
@@ -413,12 +425,16 @@ html, body {
 }
 
 @media (max-width: 576px) {
-  .gradient-text {
-    font-size: clamp(3rem, 6vw, 3rem);
+  .hero-section {
+    min-height: 200px;
   }
-
-  .hero-subtitle {
-    font-size: 1rem;
+  
+  .gradient-text {
+    font-size: 2rem;
+  }
+  
+  .hero-buttons {
+    flex-wrap: wrap;
   }
 
   .home-logo-btn {
