@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { NavLink } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import "./Styles/NavBar.css";
+import "./Styles/Navbar.css";
 
 const NavbarComponent: React.FC = () => {
   const location = useLocation();
